@@ -1,0 +1,14 @@
+{
+  "title": "Penqiun",
+  "description": "Docs for Hackers",
+  "pages": [
+    "---Launchpad---",
+    "...(getting-started)",
+    "---Bug Hunter's Armory---",
+    "...arsenal",
+    "reconnaissance",
+    "methodology",
+    "extensions",
+    "writeups"
+  ]
+}
