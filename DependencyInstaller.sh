@@ -1,5 +1,13 @@
 #!/bin/bash
 set -e
+
+# Credits
+# github/harsh1thX
+# Lot of AI tools helped solve errors on each and every step
+
+
+
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
