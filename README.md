@@ -1,27 +1,67 @@
-# 🐧 Penquin
+<div align="center">
 
-> Sharpen your tools. Hone your instincts. Claim your bounties.
+# Penquin
+
+Streamline Your Bug Bounty Workflow — Hack Smarter, Not Harder.
+
+<a href="https://penquin.vercel.app/" target="_blank">Get Started</a>
+
+</div>
+
+---
+## Introduction:
+
+*Sharpen your tools. Hone your instincts. Claim your bounties.*
 
 This is where raw skill meets engineered precision — a battle-tested toolkit forged in real bug bounty trenches. No fluff. No filler. Just lethal efficiency distilled into commands, workflows, and trade secrets that separate hunters from script kiddies.
 
 ---
 
-# 🔥 Why This Hits Different:
+## Features:
+
+- **Browser Tools, Built for Security** - Critical security extensions for passive scanning, request tampering, and vulnerability detection — seamlessly integrated.
+
+- **Structured Recon, Zero Fluff** - Structured workflows for subdomain enumeration, endpoint discovery, and vulnerability scanning.
+
+- **Commands. Ready. Go** - Pre-built commands for scanning, exploitation, and automation — save time, execute faster.
+
+- **Hacker Insights, Curated** - Learn from real-world exploits, bug bounty successes, and attack patterns to sharpen your skills.
+
+
+## Why This Hits Different:
 - Pre-built commands that slice through recon like a hot knife through butter. Why type when you can hunt?
+
 - Optimized attack chains that turn chaotic probing into a surgical strike. Less noise, more exploits.
+
 - A handpicked arsenal of techniques, tricks, and gotchas — crowdsourced from elite hunters and polished to a razor's edge.
 
----
+## Architects of Chaos:
 
-# 👑 Architects of Chaos:
-- **Sibhi** – The reason Penquin doesn't just exist — it dominates.
-- **Krish** – The code alchemist. Turns caffeine into clean execution and "it should work" into "it fucking works."
+*"We didn't build a tool — we built a force multiplier. Now go collect your bounties."*
+<table>
+<tr>
 
-This isn't some corporate-approved "security solution" built by a faceless team. It's a weaponized workflow forged by two hunters who got tired of doing things the hard way. No committees. No fluff. Just raw, iterative hacking — refined in the fires of real bug bounty battles.
+<td align="center">
+<a href="https://github.com/xibhi">
+<img src="https://avatars.githubusercontent.com/u/155215525?v=4" width="100px;" alt="Sibhi Balamurugan PFP"/><br>
+<sub>
+<b>Sibhi Balamurugan</b>
+</sub>
+</a>
+</td>
 
-> "We didn't build a tool—we built a force multiplier. Now go collect."
+<td align="center">
+<a href="https://github.com/Tokittoo">
+<img src="https://avatars.githubusercontent.com/u/127018179?v=4" width="100px;" alt="Krish PFP"/><br>
+<sub>
+<b>Krish</b>
+</sub>
+</a>
+</td>
 
----
+</tr>
+</table>
+ 
+## Support:
 
-# 📜 License
-This project is licensed under the [MIT License](https://github.com/xibhi/CVE-2025-26206/blob/main/LICENSE). Use it, modify it, and make it your own—but always hack responsibly.
+Join the official [Penquin Community](https://t.me/PenquinTool) — a space for collaboration, updates, and elite bug bounty minds.
