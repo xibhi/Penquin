@@ -29,11 +29,11 @@ const footLinks = [
 const socialLinks = [
   {
     name: 'Twitter / X',
-    href: 'https://x.com/xibhi'
+    href: 'https://x.com/PenquinTool'
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/xibhi'
+    href: 'https://github.com/xibhi/penquin'
   }
 ]
 
