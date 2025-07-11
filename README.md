@@ -35,15 +35,14 @@ This is where raw skill meets engineered precision — a battle-tested toolkit f
 
 - A handpicked arsenal of techniques, tricks, and gotchas — crowdsourced from elite hunters and polished to a razor's edge.
 
-## Quick Startt
-- This snippet allow you to installl all the toolset available and used here.
+## Quick Start
+- This snippet allow you to install all the toolset available and used here.
 - These are not just random tools but they are the most weight-pulling tools in the space of Cyber Security.
 - To install these tools, just run a simple command.
  ```shell
-wget https://raw.githubusercontent.com/xibhi/Penquin/refs/heads/main/ToolsInstaller.sh && sudo bash ToolsInstaller.sh
+wget https://raw.githubusercontent.com/xibhi/Penquin/refs/heads/main/DependencyInstaller.sh && sudo bash DependencyInstaller.sh
  ```
-- Paste this in, press Enter and Sit Back, either you watch all these tools install, or get a break from the screen and wonder at the world around you. 🌄 
-
+- Paste this in, press Enter and grab a cup of coffee, either you watch all these tools install, or get a break from the screen and wonder at the world around you.
 
 ## Architects of Chaos:
 
