@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaGithub, FaXTwitter } from 'react-icons/fa6'
+import { FaGithub, FaXTwitter, FaTelegram } from 'react-icons/fa6'
 
 const footLinks = [
   {
@@ -29,11 +29,15 @@ const footLinks = [
 const socialLinks = [
   {
     name: 'Twitter / X',
-    href: 'https://x.com/PenquinTool'
+    href: 'https://x.com/xibhi'
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/xibhi/penquin'
+    href: 'https://github.com/xibhi'
+  },
+  {
+    name: 'Telegram',
+    href: 'https://penquintool.t.me'
   }
 ]
 
@@ -78,8 +82,9 @@ const Footer = () => {
       <div className='flex justify-between items-center max-md:mt-8'>
         <p className='text-muted-foreground text-sm'>&copy; {new Date().getFullYear()}, All rights reserved.</p>
         <div className='flex items-center gap-2'>
-          <Link href={'https://github.com/xibhi'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
-          <Link href={'https://x.com/xibhi'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
+          <Link href={'https://github.com/xibhi/penquin'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
+          <Link href={'https://x.com/PenquinTool'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
+          <Link href={'https://penquintool.t.me'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaTelegram size={18} /></Link>
         </div>
       </div>
     </div>

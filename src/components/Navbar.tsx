@@ -2,7 +2,7 @@ import React from 'react'
 import DarkModeToggle from './DarkModeToggle'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaXTwitter, FaTelegram } from 'react-icons/fa6';
 
 const Navbar = () => {
   return (
@@ -24,6 +24,7 @@ const Navbar = () => {
         <div className='flex items-center gap-2'>
           <Link href={'https://github.com/xibhi/penquin'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
           <Link href={'https://x.com/PenquinTool'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
+          <Link href={'https://penquintool.t.me'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaTelegram size={18} /></Link>
           <DarkModeToggle />
         </div>
       </div>
