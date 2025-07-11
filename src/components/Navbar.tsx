@@ -22,8 +22,8 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='flex items-center gap-2'>
-          <Link href={'https://github.com/xibhi'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
-          <Link href={'https://x.com/xibhi'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
+          <Link href={'https://github.com/xibhi/penquin'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
+          <Link href={'https://x.com/PenquinTool'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
           <DarkModeToggle />
         </div>
       </div>
