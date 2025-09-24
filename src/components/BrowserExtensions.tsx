@@ -154,11 +154,11 @@ export function BrowserExtensions() {
               delay: index * 0.1,
               ease: "easeOut" 
             }}
-            className="projects group relative overflow-hidden rounded-lg border border-border bg-background/50 backdrop-blur-sm p-6 hover:bg-background/80 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+            className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col"
           >
-            <div className="space-y-4">
+            <div className="space-y-1 flex-1 flex flex-col">
               <div className="flex items-start justify-between">
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg font-semibold leading-tight">
                   {extension.name}
                 </h3>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -167,16 +167,16 @@ export function BrowserExtensions() {
                 </div>
               </div>
               
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-snug">
                 {extension.description}
               </p>
               
-              <div className="pt-2">
+              <div className="pt-2 mt-auto">
                 <a
                   href={extension.downloadLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors duration-200 group-hover:shadow-md"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors no-underline border-0 focus:outline-none focus:ring-0"
                 >
                   <i className={getStoreIcon(extension.store)}></i>
                   Get Extension
@@ -184,9 +184,6 @@ export function BrowserExtensions() {
                 </a>
               </div>
             </div>
-            
-            {/* Decorative gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </motion.div>
         ))}
       </div>

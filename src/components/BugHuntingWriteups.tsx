@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 
 interface WriteupItem {
   title: string
@@ -160,9 +161,14 @@ const writeups: WriteupItem[] = [
   }
 ]
 
-const WriteupCard = ({ writeup }: { writeup: WriteupItem }) => {
+const WriteupCard = ({ writeup, index = 0 }: { writeup: WriteupItem, index?: number }) => {
   return (
-    <div className="projects p-6 rounded-lg border border-border bg-card hover:bg-accent/5 transition-colors">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      className="projects p-6 rounded-lg border border-border bg-card hover:bg-accent/5 transition-colors"
+    >
       <h3 className="text-lg font-semibold mb-2 line-clamp-2">
         {writeup.title}
       </h3>
@@ -194,7 +200,7 @@ const WriteupCard = ({ writeup }: { writeup: WriteupItem }) => {
           {writeup.readTime}
         </span>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -205,7 +211,7 @@ export const BugHuntingWriteups = () => {
       {/* Writeups Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {writeups.map((writeup, index) => (
-          <WriteupCard key={index} writeup={writeup} />
+          <WriteupCard key={index} writeup={writeup} index={index} />
         ))}
       </div>
       

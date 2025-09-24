@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { Button } from './ui/Btn'
 import { TagItem, Tags } from '@/components/Tags'
 import Link from 'next/link'
-import { IconBrandFramerMotion, IconBrandNextjs, IconBrandTailwind, IconBrandReact, IconBrandGithub } from '@tabler/icons-react'
+import { IconBrandFramerMotion, IconBrandNextjs, IconBrandTailwind, IconBrandReact, IconArrowRight } from '@tabler/icons-react'
 import Badge from './Badge'
 import { motion } from 'motion/react'
 
@@ -62,10 +62,9 @@ const Hero = () => {
         Supercharge your bug bounty workflow: pre-built commands, optimized workflows, and expert-curated resources — hack smarter, not harder.
       </motion.p>
       <motion.div variants={variant} className='mx-auto w-max flex gap-2 mt-8'>
-        <Button asChild className='w-max mx-auto'>
-          <Link href={'https://github.com/xibhi/penquin'} className='flex items-center gap-2'>
-            <IconBrandGithub size={20} />
-            View on GitHub
+      <Button className='gap-0 hover:gap-4 transition-all duration-200 w-max' asChild>
+          <Link href={'/docs'}>
+            Get Started <IconArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </motion.div>

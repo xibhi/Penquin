@@ -1,10 +1,4 @@
 import { source } from '@/lib/source';
-import {
-  DocsBody,
-  DocsDescription,
-  DocsPage,
-  DocsTitle,
-} from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 
@@ -18,13 +12,15 @@ export default async function Page(props: {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
+    <div className="prose prose-gray dark:prose-invert max-w-none">
+      <h1 className="text-3xl font-bold mb-4">{page.data.title}</h1>
+      {page.data.description && (
+        <p className="text-lg text-muted-foreground mb-8">{page.data.description}</p>
+      )}
+      <div className="prose prose-gray dark:prose-invert max-w-none">
         <MDX components={getMDXComponents()} />
-      </DocsBody>
-    </DocsPage>
+      </div>
+    </div>
   );
 }
 
@@ -44,3 +40,5 @@ export async function generateMetadata(props: {
     description: page.data.description,
   };
 }
+
+
