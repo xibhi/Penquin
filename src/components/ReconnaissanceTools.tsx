@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 
 export const ReconnaissanceTools = () => {
   const [domain, setDomain] = useState('example.com')
@@ -98,6 +99,16 @@ export const ReconnaissanceTools = () => {
             placeholder="Enter domain to recon..."
             className="flex-1 px-3 py-2 border border-border rounded-md bg-background"
           />
+          <button
+            onClick={() => {
+              if (validateDomain(domain)) {
+                showNotificationMessage('Reconnaissance tools ready! Click any tool to start.')
+              }
+            }}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+          >
+            Generate
+          </button>
         </div>
       </div>
 
@@ -111,7 +122,16 @@ export const ReconnaissanceTools = () => {
       {/* Tools Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Subdomain Enumeration */}
-        <ToolCard title="Subdomain Enumeration" icon="fas fa-sitemap">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 0 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Subdomain Enumeration" icon="fas fa-sitemap">
           <ToolButton onClick={() => executeToolSearch('https://crt.sh/?q=%.example.com', 'crt.sh')}>
             crt.sh
           </ToolButton>
@@ -154,10 +174,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeToolSearch('https://sitereport.netcraft.com/?url=example.com', 'Netcraft')}>
             Netcraft
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Secret Discovery */}
-        <ToolCard title="Secret Discovery" icon="fas fa-key">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 1 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Secret Discovery" icon="fas fa-key">
           <ToolButton onClick={() => executeToolSearch('https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original&filter=original:.*\\.(xls|xml|xlsx|json|pdf|sql|doc|docx|pptx|txt|git|zip|tar\\.gz|tgz|bak|7z|rar|log|cache|secret|db|backup|yml|gz|config|csv|yaml|md|md5|exe|dll|bin|ini|bat|sh|tar|deb|rpm|iso|img|env|apk|msi|dmg|tmp|crt|pem|key|pub|asc)$', 'web.archive.org Sensitive Files')}>
             web.archive.org (Sensitive Files)
           </ToolButton>
@@ -188,10 +218,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeToolSearch('https://www.shodan.io/search?query=Ssl.cert.subject.CN:%22example.com%22+200', 'SSL Certificate CN Search')}>
             SSL Certificate CN Search
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Passive Reconnaissance */}
-        <ToolCard title="Passive Reconnaissance" icon="fas fa-search">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 2 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Passive Reconnaissance" icon="fas fa-search">
           <ToolButton onClick={() => executeToolSearch('https://whois.domaintools.com/example.com', 'WHOIS Lookup')}>
             WHOIS Lookup
           </ToolButton>
@@ -213,10 +253,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeToolSearch('https://www.virustotal.com/gui/domain/example.com/urls', 'VirusTotal URLs')}>
             VirusTotal URLs
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* S3 Bucket Enumeration */}
-        <ToolCard title="S3 Bucket Enumeration" icon="fas fa-cloud">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 3 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="S3 Bucket Enumeration" icon="fas fa-cloud">
           <ToolButton onClick={() => executeGoogleDork('site:s3.amazonaws.com example.com')}>
             AWS S3 Buckets
           </ToolButton>
@@ -226,10 +276,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:blob.core.windows.net example.com')}>
             Azure Blob Storage
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Technology Detection */}
-        <ToolCard title="Technology Detection" icon="fas fa-code">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 4 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Technology Detection" icon="fas fa-code">
           <ToolButton onClick={() => executeToolSearch('https://builtwith.com/example.com', 'builtwith.com')}>
             builtwith.com
           </ToolButton>
@@ -242,10 +302,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeToolSearch('https://whatcms.org/?s=example.com', 'whatcms.org')}>
             whatcms.org
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Port Scanning */}
-        <ToolCard title="Port Scanning" icon="fas fa-network-wired">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 5 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Port Scanning" icon="fas fa-network-wired">
           <ToolButton onClick={() => executeToolSearch('https://viewdns.info/portscan/?host=example.com', 'viewdns.info')}>
             viewdns.info
           </ToolButton>
@@ -255,30 +325,60 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeToolSearch('https://web-check.xyz/check/example.com', 'web-check.xyz')}>
             web-check.xyz
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* URL Collection */}
-        <ToolCard title="URL Collection" icon="fas fa-link">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 6 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="URL Collection" icon="fas fa-link">
           <ToolButton onClick={() => executeToolSearch('https://web.archive.org/cdx/search/cdx?url=*.example.com/*&output=txt&collapse=urlkey&fl=original&page=/', 'web.archive.org')}>
             web.archive.org
           </ToolButton>
           <ToolButton onClick={() => executeToolSearch('https://urlscan.io/api/v1/search/?q=example.com&size=10000', 'urlscan.io')}>
             urlscan.io
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* CMS Dorking */}
-        <ToolCard title="CMS Dorking" icon="fas fa-wordpress">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 7 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="CMS Dorking" icon="fas fa-wordpress">
           <ToolButton onClick={() => executeGoogleDork('site:example.com inurl:(wp-content/plugins OR wp-admin) ext:php')}>
             WP Juicy Extensions
           </ToolButton>
           <ToolButton onClick={() => executeGoogleDork('site:example.com filetype:sql intext:wp_users phpmyadmin')}>
             WP Users
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Directory Traversal */}
-        <ToolCard title="Directory Traversal" icon="fas fa-folder-open">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 8 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Directory Traversal" icon="fas fa-folder-open">
           <ToolButton onClick={() => executeGoogleDork('site:example.com intitle:index.of')}>
             Directory Listing
           </ToolButton>
@@ -288,10 +388,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:example.com filetype:conf OR filetype:config')}>
             Config Files
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Vulnerability Search */}
-        <ToolCard title="Vulnerability Search" icon="fas fa-bug">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 9 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Vulnerability Search" icon="fas fa-bug">
           <ToolButton onClick={() => executeGoogleDork('site:exploit-db.com example.com')}>
             Exploit-DB
           </ToolButton>
@@ -301,10 +411,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:packetstormsecurity.com example.com')}>
             PacketStorm
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Code & Document Search */}
-        <ToolCard title="Code & Document Search" icon="fas fa-file-code">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 10 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Code & Document Search" icon="fas fa-file-code">
           <ToolButton onClick={() => executeGoogleDork('site:pastebin.com example.com')}>
             Pastebin Entries
           </ToolButton>
@@ -314,10 +434,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:(github.com OR gitlab.com) example.com')}>
             GitHub/GitLab Code
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* API Endpoints */}
-        <ToolCard title="API Endpoints" icon="fas fa-code">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 11 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="API Endpoints" icon="fas fa-code">
           <ToolButton onClick={() => executeGoogleDork('site:example.com (inurl:api OR inurl:apis OR inurl:graphql OR inurl:swagger OR inurl:v1 OR inurl:v2 OR inurl:v3) (filetype:json OR filetype:yaml OR filetype:xml)')}>
             API Documentation
           </ToolButton>
@@ -327,10 +457,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:example.com inurl:(graphql OR graphiql OR hasura)')}>
             GraphQL Endpoints
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Cloud Assets */}
-        <ToolCard title="Cloud Assets" icon="fas fa-cloud">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 12 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Cloud Assets" icon="fas fa-cloud">
           <ToolButton onClick={() => executeGoogleDork('site:s3.amazonaws.com example.com')}>
             AWS S3 Buckets
           </ToolButton>
@@ -343,10 +483,20 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:example.com (inurl:amazonaws.com OR inurl:digitaloceanspaces.com OR inurl:blob.core.windows.net)')}>
             Cloud Storage URLs
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
 
         {/* Development Assets */}
-        <ToolCard title="Development Assets" icon="fas fa-code">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 13 * 0.1,
+            ease: "easeOut" 
+          }}
+        >
+          <ToolCard title="Development Assets" icon="fas fa-code">
           <ToolButton onClick={() => executeGoogleDork('site:example.com inurl:(.git OR .svn OR .hg OR .bzr)')}>
             Version Control
           </ToolButton>
@@ -356,7 +506,8 @@ export const ReconnaissanceTools = () => {
           <ToolButton onClick={() => executeGoogleDork('site:example.com ext:(php OR py OR rb OR java OR js OR ts OR go OR sh OR pl OR asp OR aspx) inurl:(test OR dev OR staging)')}>
             Dev Scripts
           </ToolButton>
-        </ToolCard>
+          </ToolCard>
+        </motion.div>
       </div>
 
     </div>

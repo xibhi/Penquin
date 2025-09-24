@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaGithub, FaXTwitter, FaTelegram } from 'react-icons/fa6'
+import { FaGithub, FaXTwitter } from 'react-icons/fa6'
 
 const footLinks = [
   {
@@ -34,10 +34,6 @@ const socialLinks = [
   {
     name: 'GitHub',
     href: 'https://github.com/xibhi'
-  },
-  {
-    name: 'Telegram',
-    href: 'https://penquintool.t.me'
   }
 ]
 
@@ -84,7 +80,6 @@ const Footer = () => {
         <div className='flex items-center gap-2'>
           <Link href={'https://github.com/xibhi/penquin'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaGithub size={18} /></Link>
           <Link href={'https://x.com/PenquinTool'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaXTwitter size={18} /></Link>
-          <Link href={'https://penquintool.t.me'} target={'_blank'} className='p-2 rounded-full cursor-pointer'><FaTelegram size={18} /></Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from './ui/Btn'
-import { IconArrowRight } from '@tabler/icons-react'
+import { IconBrandGithub } from '@tabler/icons-react'
 import Link from 'next/link'
 
 const CTA = () => {
@@ -14,11 +14,14 @@ const CTA = () => {
          
         </h1>
       </div>
-      <Button className='gap-0 hover:gap-4 transition-all duration-200 w-max' asChild>
-        <Link href={'/docs'}>
-          Get Started <IconArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-      </Button>
+      <div className='flex gap-4'>
+        <Button asChild className='w-max'>
+          <Link href={'https://github.com/xibhi/penquin'} className='flex items-center gap-2'>
+            <IconBrandGithub size={20} />
+            View on GitHub
+          </Link>
+        </Button>
+      </div>
     </div>
   )
 }

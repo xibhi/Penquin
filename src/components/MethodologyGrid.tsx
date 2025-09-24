@@ -1,5 +1,65 @@
-
 'use client'
+
+import React from 'react'
+import { motion } from 'framer-motion'
+
+interface Methodology {
+  id: string
+  title: string
+  tags: string[]
+  url: string
+}
+
+const methodologies: Methodology[] = [
+  {
+    id: "recon-methodology",
+    title: "Advanced Recon Methodology",
+    tags: ["methodology", "recon"],
+    url: "#"
+  },
+  {
+    id: "fetch-through-api",
+    title: "Gather assets through API",
+    tags: ["methodology", "recon", "api"],
+    url: "#"
+  },
+  {
+    id: "ssti-payloads",
+    title: "SSTI Payloads",
+    tags: ["payloads", "injection"],
+    url: "#"
+  },
+  {
+    id: "crlf-injection",
+    title: "CRLF Injection",
+    tags: ["payloads", "injection", "headers"],
+    url: "#"
+  },
+  {
+    id: "sqli-methodology",
+    title: "SQL Injection Methodology",
+    tags: ["methodology", "payloads", "sqli"],
+    url: "#"
+  },
+  {
+    id: "xss-waf-bypass",
+    title: "XSS WAF Bypass Methodology",
+    tags: ["xss", "bypass", "payloads"],
+    url: "#"
+  },
+  {
+    id: "sqli-xor-waf-bypass",
+    title: "SQL Injection XOR WAF Bypass",
+    tags: ["sqli", "xor", "payloads"],
+    url: "#"
+  },
+  {
+    id: "google-dorks",
+    title: "Advanced Google Dorks",
+    tags: ["google-hacking", "google-dork"],
+    url: "#"
+  }
+]
 
 export function MethodologyGrid() {
   const handleCardClick = (url: string) => {
@@ -7,192 +67,48 @@ export function MethodologyGrid() {
   };
 
   return (
-    <div className="methodology-container">
-      <div className="methodology-grid">
-        
-        <div className="methodology-card" data-id="recon-methodology" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-radar"></i>
-          </div>
-          <div className="card-header">
-            <h3>Advanced Recon Methodology</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>methodology
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>recon
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="fetch-through-api" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-code"></i>
-          </div>
-          <div className="card-header">
-            <h3>Gather assets through API</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>methodology
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>recon
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>api
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="ssti-payloads" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-brackets-curly"></i>
-          </div>
-          <div className="card-header">
-            <h3>SSTI Payloads</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>payloads
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>injection
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="crlf-injection" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-exclamation-triangle"></i>
-          </div>
-          <div className="card-header">
-            <h3>CRLF Injection</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>payloads
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>injection
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>headers
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="sqli-methodology" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-database"></i>
-          </div>
-          <div className="card-header">
-            <h3>SQL Injection Methodology</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>methodology
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>payloads
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>sqli
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="xss-waf-bypass" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-shield-alt"></i>
-          </div>
-          <div className="card-header">
-            <h3>XSS WAF Bypass Methodology</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>xss
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>bypass
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>payloads
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="sqli-xor-waf-bypass" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-code"></i>
-          </div>
-          <div className="card-header">
-            <h3>SQL Injection XOR WAF Bypass</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>sqli
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>xor
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>payloads
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div className="methodology-card" data-id="google-dorks" onClick={() => handleCardClick('#')}>
-          <div className="card-icon">
-            <i className="fas fa-search"></i>
-          </div>
-          <div className="card-header">
-            <h3>Advanced Google Dorks</h3>
-          </div>
-          <div className="card-tags">
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>google-hacking
-            </span>
-            <span className="tag">
-              <i className="fas fa-hashtag"></i>google-dork
-            </span>
-          </div>
-          <div className="card-footer">
-            <i className="fas fa-terminal"></i><span>View Methodology</span>
-            <i className="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {methodologies.map((methodology, index) => (
+          <motion.div
+            key={methodology.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.1,
+              ease: "easeOut" 
+            }}
+            className="projects border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors cursor-pointer"
+            onClick={() => handleCardClick(methodology.url)}
+          >
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">
+                {methodology.title}
+              </h3>
+              
+              <div className="flex flex-wrap gap-2">
+                {methodology.tags.map((tag, tagIndex) => (
+                  <span 
+                    key={tagIndex}
+                    className="inline-flex items-center gap-1 rounded border border-border bg-muted text-muted-foreground px-2 py-0.5 text-xs"
+                  >
+                    <i className="fas fa-hashtag"></i>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <div className="pt-2">
+                <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors">
+                  <i className="fas fa-terminal"></i>
+                  View Methodology
+                  <i className="fas fa-external-link-alt text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

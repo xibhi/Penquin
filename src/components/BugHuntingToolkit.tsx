@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 
 // Define type for commands
 type CommandDictionary = {
@@ -11,7 +12,7 @@ type CommandDictionary = {
 const commandTemplates: CommandDictionary = {
   'subfinder-basic': 'subfinder -d example.com -all -recursive > subdomain.txt',
   'httpx-filter': 'cat subdomain.txt | httpx-toolkit -ports 80,443,8080,8000,8888 -threads 200 > subdomains_alive.txt',
-  'subzy-check': 'subzy run --targets subdomains.txt --concurrency 100 --hide_fails --verify_ssl',
+  'subzy-check': 'subzy run --targets subdomain.txt --concurrency 100 --hide_fails --verify_ssl',
   'katana-passive': 'katana -u subdomains_alive.txt -d 5 -ps -pss waybackarchive,commoncrawl,alienvault -kf -jc -fx -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg -o allurls.txt',
   'advanced-urls': 'echo example.com | katana -d 5 -ps -pss waybackarchive,commoncrawl,alienvault -f qurl | urldedupe >output.txt\nkatana -u https://example.com -d 5 | grep \'=\' | urldedupe | anew output.txt\ncat output.txt | sed \'s/=.*/=/\' >final.txt',
   'gau-urls': 'echo example.com | gau --mc 200 | urldedupe >urls.txt\ncat urls.txt | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep \'=\' | sort > output.txt\ncat output.txt | sed \'s/=.*/=/\' >final.txt',
@@ -47,6 +48,8 @@ const commandTemplates: CommandDictionary = {
 }
 
 export const BugHuntingToolkit = () => {
+  const hasMounted = useRef(false)
+  useEffect(() => { hasMounted.current = true }, [])
   const [domain, setDomain] = useState('example.com')
   const [notification, setNotification] = useState('')
   const [showNotification, setShowNotification] = useState(false)
@@ -86,13 +89,19 @@ export const BugHuntingToolkit = () => {
     setTimeout(() => setShowNotification(false), 2000)
   }
 
-  const ToolCard = ({ title, description, commandId, multiline = false }: {
+  const ToolCard = ({ title, description, commandId, multiline = false, index = 0 }: {
     title: string
     description: string
     commandId: string
     multiline?: boolean
+    index?: number
   }) => (
-    <div className="projects border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors">
+    <motion.div
+      initial={hasMounted.current ? false : { opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      className="projects border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors"
+    >
       <div className="flex items-start justify-between mb-2">
         <h3 className="font-semibold text-lg">{title}</h3>
         <button
@@ -110,11 +119,24 @@ export const BugHuntingToolkit = () => {
         <span className="text-green-400">$ </span>
         <span className={multiline ? "whitespace-pre-line break-words" : "break-all"}>{commands[commandId]}</span>
       </div>
-    </div>
+    </motion.div>
+  )
+
+  const AnimatedGrid = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+    <motion.div
+      initial={hasMounted.current ? false : { opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   )
 
   return (
     <div className="w-full">
+      {/* Mount flag to enable first-load animation only */}
+      
       {/* Header Section */}
       <div className="text-center mb-8">
         <form onSubmit={handleSubmit} className="flex gap-2 max-w-md mx-auto">
@@ -150,23 +172,26 @@ export const BugHuntingToolkit = () => {
           </svg>
           Subdomain Enumeration
         </h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <AnimatedGrid className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <ToolCard
             title="Basic Subdomain Discovery"
             description="Discovers subdomains using subfinder with recursive enumeration and saves results to a file."
             commandId="subfinder-basic"
+            index={0}
           />
           <ToolCard
             title="Live Subdomain Filtering"
             description="Filters discovered subdomains using httpx and saves the alive ones to a file."
             commandId="httpx-filter"
+            index={1}
           />
           <ToolCard
             title="Subdomain Takeover Check"
             description="Checks for subdomain takeover vulnerabilities using subzy."
             commandId="subzy-check"
+            index={2}
           />
-        </div>
+        </AnimatedGrid>
       </section>
 
       {/* URL Collection */}

@@ -5,6 +5,15 @@
 @import 'fumadocs-ui/css/black.css';
 @import 'fumadocs-ui/css/preset.css';
 
+/* Cabinet Grotesk Medium Font */
+@font-face {
+  font-family: 'Cabinet Grotesk Medium';
+  src: url('/CabinetGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -85,15 +94,236 @@
 }
 
 /* Using next-themes instead */
-/* @media (color-scheme: dark) {
+ /*@media (color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-} */
+}*/
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fixed sidebar positioning for v1 pages - Arsenal page as reference */
+[data-sidebar] {
+  position: fixed !important;
+  left: 0 !important;
+  top: 4rem !important;
+  height: calc(100vh - 4rem) !important;
+  width: 18rem !important;
+  z-index: 40 !important;
+  overflow-y: auto;
+  background: #1f1f1f !important; /* exact black like screenshot */
+  border-right: 1px solid #1f1f1f !important; /* subtle divider */
+  padding: 1.25rem 0 !important; /* slightly tighter top/bottom */
+}
+
+/* Ensure main content has proper margin to account for fixed sidebar (desktop only) */
+@media (min-width: 1024px) {
+  [data-main] {
+    margin-left: 18rem !important;
+    width: calc(100% - 18rem) !important;
+  }
+}
+
+/* Additional fumadocs sidebar fixes (desktop only) */
+@media (min-width: 1024px) {
+  .fumadocs-sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 4rem !important;
+    height: calc(100vh - 4rem) !important;
+    width: 18rem !important;
+    z-index: 40 !important;
+    background: #0A0A0A !important;
+    border-right: 1px solid #1f1f1f !important;
+    padding: 1.25rem 0 !important;
+    overflow-y: auto;
+  }
+}
+
+/* Sidebar navigation styling */
+[data-sidebar] nav,
+[data-sidebar] ul,
+.fumadocs-sidebar nav,
+.fumadocs-sidebar ul {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section headers (Launchpad, Bug Hunter's Armory) */
+[data-sidebar] [data-level="0"] > a,
+[data-sidebar] [data-level="0"] > span,
+.fumadocs-sidebar [data-level="0"] > a,
+.fumadocs-sidebar [data-level="0"] > span {
+  display: block;
+  padding: 0.5rem 1.25rem; /* tighter like screenshot */
+  margin: 0.25rem 0;
+  color: #9ca3af !important; /* muted header */
+  font-weight: 600;
+  font-size: 0.75rem; /* smaller header */
+  text-transform: none; /* screenshot shows title case */
+  letter-spacing: 0.01em;
+  border: none !important;
+  background: none !important;
+}
+
+/* Navigation items (Essentials, Reconnaissance, etc.) */
+[data-sidebar] [data-level="1"] > a,
+[data-sidebar] [data-level="1"] > span,
+.fumadocs-sidebar [data-level="1"] > a,
+.fumadocs-sidebar [data-level="1"] > span {
+  display: block;
+  padding: 0.5rem 1rem; /* align text like screenshot */
+  margin: 0.125rem 0;
+  color: #a3a3a3 !important; /* light gray */
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: none !important;
+  background: none !important;
+  transition: all 0.2s ease;
+  border-radius: 9999px; /* pill */
+  margin-left: 0.75rem; /* inset like screenshot */
+  margin-right: 0.75rem;
+  line-height: 1.25rem;
+}
+
+/* Selected/Active navigation item */
+[data-sidebar] [data-level="1"] > a[aria-current="page"],
+[data-sidebar] [data-level="1"] > a[data-active="true"],
+.fumadocs-sidebar [data-level="1"] > a[aria-current="page"],
+.fumadocs-sidebar [data-level="1"] > a[data-active="true"] {
+  background: #262626 !important; /* pill bg */
+  color: #ffffff !important;
+  font-weight: 500;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset; /* subtle ring */
+}
+
+/* Hover effects for navigation items */
+[data-sidebar] [data-level="1"] > a:hover,
+.fumadocs-sidebar [data-level="1"] > a:hover {
+  background: #1f1f1f !important; /* hover slightly darker */
+  color: #ffffff !important;
+}
+
+/* Remove any default link styling */
+[data-sidebar] a,
+.fumadocs-sidebar a {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+/* Ensure proper spacing between sections */
+[data-sidebar] [data-level="0"]:not(:first-child),
+.fumadocs-sidebar [data-level="0"]:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+/* ========================= */
+/* Light theme adjustments   */
+/* ========================= */
+/* Scope all overrides to light mode only */
+html:not(.dark) [data-sidebar],
+html:not(.dark) .fumadocs-sidebar {
+  background: #ffffff !important;
+  border-right: 1px solid #e5e5e5 !important;
+}
+
+/* Light: section headers */
+html:not(.dark) [data-sidebar] [data-level="0"] > a,
+html:not(.dark) [data-sidebar] [data-level="0"] > span,
+html:not(.dark) .fumadocs-sidebar [data-level="0"] > a,
+html:not(.dark) .fumadocs-sidebar [data-level="0"] > span {
+  color: #6b7280 !important; /* slate-500 */
+}
+
+/* Light: nav items */
+html:not(.dark) [data-sidebar] [data-level="1"] > a,
+html:not(.dark) [data-sidebar] [data-level="1"] > span,
+html:not(.dark) .fumadocs-sidebar [data-level="1"] > a,
+html:not(.dark) .fumadocs-sidebar [data-level="1"] > span {
+  color: #374151 !important; /* slate-700 */
+}
+
+/* Light: hover */
+html:not(.dark) [data-sidebar] [data-level="1"] > a:hover,
+html:not(.dark) .fumadocs-sidebar [data-level="1"] > a:hover {
+  background: #f3f4f6 !important; /* gray-100 */
+  color: #111827 !important; /* gray-900 */
+}
+
+/* Light: active */
+html:not(.dark) [data-sidebar] [data-level="1"] > a[aria-current="page"],
+html:not(.dark) [data-sidebar] [data-level="1"] > a[data-active="true"],
+html:not(.dark) .fumadocs-sidebar [data-level="1"] > a[aria-current="page"],
+html:not(.dark) .fumadocs-sidebar [data-level="1"] > a[data-active="true"] {
+  background: #e5e7eb !important; /* gray-200 */
+  color: #111827 !important; /* gray-900 */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04) inset;
+}
+
+/* ========================= */
+/* Mobile layout (<= 1024px) */
+/* ========================= */
+@media (max-width: 1024px) {
+  /* Let fumadocs handle the drawer on mobile; content full width */
+  [data-main] {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 1rem !important; /* space below navbar */
+  }
+  
+  /* Fix mobile sidebar positioning - add top padding to ensure "The Essentials" is visible */
+  [data-sidebar],
+  .fumadocs-sidebar {
+    top: 4rem !important;
+    padding-top: 1.5rem !important;
+  }
+  
+  /* Ensure sidebar content has proper spacing from top */
+  [data-sidebar] > div,
+  .fumadocs-sidebar > div {
+    padding-top: 0.5rem !important;
+  }
+
+  /* Improve readability on mobile */
+  .v1-layout h1 { font-size: 1.75rem; line-height: 2.25rem; margin-bottom: 0.75rem; font-weight: 800; }
+  .v1-layout h2 { font-size: 1.25rem; line-height: 1.875rem; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 800; }
+  .v1-layout p { font-size: 0.95rem; line-height: 1.75rem; }
+  .v1-layout ul, .v1-layout ol { padding-left: 1rem; }
+  .v1-layout code, .v1-layout pre { font-size: 0.85rem; }
+
+  /* Title highlight chip like screenshot */
+  .v1-layout h1:first-child,
+  .v1-layout [data-docs-title] {
+    display: inline-block;
+    background: #22d3ee; /* cyan */
+    color: #0a0a0a; /* dark text on chip */
+    font-weight: 800;
+    padding: 0.25rem 0.75rem; /* height similar to screenshot */
+    border-radius: 0.375rem;
+    letter-spacing: 0.01em;
+    margin-left: 0; /* align with page padding */
+  }
+
+  /* Subtle max width for better measure */
+  .v1-layout [data-main],
+  .v1-layout .fd-docs-body,
+  .v1-layout .docs-body {
+    max-width: 72ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* List spacing & bullets like screenshot */
+  .v1-layout ul { list-style: disc !important; }
+  .v1-layout li { margin-bottom: 0.5rem; }
 }
