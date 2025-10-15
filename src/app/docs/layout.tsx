@@ -75,7 +75,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       )}
 
       {/* FileTree Sidebar */}
-      <div className={`fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-background border border-border rounded-lg mx-4 my-4 overflow-y-auto z-40 transition-transform duration-300 ease-in-out text-xs ${
+      <div className={`fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-background border-r border-border overflow-y-auto z-40 transition-transform duration-300 ease-in-out text-xs ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } lg:translate-x-0`} style={{ fontFamily: "'Cabinet Grotesk Medium', sans-serif" }}>
         <div className='p-2 pt-4'>
@@ -105,7 +105,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </div>
       
       {/* Main Content */}
-      <div className='min-h-screen w-full lg:ml-80 text-xl' style={{ fontFamily: "'Cabinet Grotesk Medium', sans-serif" }}>
+      <div className='min-h-screen w-full lg:ml-72 text-xl' style={{ fontFamily: "'Cabinet Grotesk Medium', sans-serif" }}>
         <div className='max-w-4xl mx-auto px-4 py-4 sm:px-6 pt-16 lg:pt-4'>
           {children}
         </div>
