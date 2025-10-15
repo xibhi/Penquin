@@ -39,23 +39,23 @@ const Features = () => {
 
 const features = [
   {
-    title: 'Browser Tools, Built for Security',
+    title: 'Browser Tools',
     description: 'Critical security extensions for passive scanning, request tampering, and vulnerability detection — seamlessly integrated.',
     className: 'md:col-span-2'
   },
   {
-    title: 'Structured Recon, Zero Fluff',
-    description: 'Structured workflows for subdomain enumeration, endpoint discovery, and vulnerability scanning.',
+    title: 'Structured Recon',
+    description: 'Subdomain enumeration → endpoint mapping → targeted scans. Clear, stepwise, effective.',
     className: 'md:col-span-1'
   },
   {
     title: 'Commands. Ready. Go',
-    description: 'Pre-built commands for scanning, exploitation, and automation — save time, execute faster.',
+    description: ' Pre-built commands for scanning, exploitation, and automation — save time, execute faster.',
     className: 'md:col-span-1'
   },
   {
     title: 'Hacker Insights, Curated',
-    description: 'Learn from real-world exploits, bug bounty successes, and attack patterns to sharpen your skills.',
+    description: 'Resumes, channels, follow lists, writeups, books, CLI tips, and WSL setup guides — everything you need to level up',
     className: 'md:col-span-2'
   }
 ]
