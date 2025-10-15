@@ -59,7 +59,7 @@ const Hero = () => {
         Cut the Clutter.<br />Command. Exploit. Repeat.
       </motion.h1>
       <motion.p variants={variant} className='mx-auto max-w-xl text-center text-muted-foreground md:text-base text-sm'>
-        Supercharge your bug bounty workflow: pre-built commands, optimized workflows, and expert-curated resources — hack smarter, not harder.
+      Level up your bug bounty game with pre-built commands, streamlined workflows, and insider resources that hit different. — hack smarter, not harder.
       </motion.p>
       <motion.div variants={variant} className='mx-auto w-max flex gap-2 mt-8'>
       <Button className='gap-0 hover:gap-4 transition-all duration-200 w-max' asChild>

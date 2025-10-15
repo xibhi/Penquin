@@ -207,6 +207,21 @@ const fileTreeData: FileTreeItem[] = [
       { name: "methodology.mdx", type: "file", path: "/docs/methodology" },
       { name: "extensions.mdx", type: "file", path: "/docs/extensions" },
       { name: "writeups.mdx", type: "file", path: "/docs/writeups" },
+      { name: "youtube channels.mdx", type: "file", path: "/docs/youtube-channels" },
+    ],
+  },
+  {
+    name: "Learn the Basics",
+    type: "folder",
+    children: [
+      { name: "cyber security types.mdx", type: "file", path: "/docs/cyber-security-types" },
+      { name: "common job roles.mdx", type: "file", path: "/docs/common-job-roles" },
+      { name: "get started with infosec.mdx", type: "file", path: "/docs/get-started-with-infosec" },
+      { name: "best bug bounty platform.mdx", type: "file", path: "/docs/best-bug-bounty-platform" },
+      { name: "best infosec writeups website.mdx", type: "file", path: "/docs/best-infosec-writeups-website" },
+      { name: "hacking books.mdx", type: "file", path: "/docs/hacking-books" },
+      { name: "cli commands.mdx", type: "file", path: "/docs/cli-commands" },
+      { name: "learn wsl.mdx", type: "file", path: "/docs/learn-wsl" },
     ],
   },
 ];
