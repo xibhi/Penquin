@@ -124,7 +124,7 @@ export function CLICommands() {
   return (
     <div className="space-y-6">
       
-        <div className="min-w-[760px] grid grid-cols-12 items-stretch">
+        <div className="hidden sm:grid grid-cols-12 items-stretch">
           <div className="col-span-2 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Command</div>
           <div className="col-span-4 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Description</div>
           <div className="col-span-1 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">#</div>
@@ -139,17 +139,30 @@ export function CLICommands() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
-              className="grid grid-cols-12 items-start hover:bg-accent/40 transition-colors"
+              className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
             >
-              <div className="col-span-2 px-4 py-3 text-sm font-mono">
+              <div className="px-4 py-3 sm:col-span-2 text-sm font-mono">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Unix</div>
                 {row.leftCmd && (
                   <code className="py-0.5 px-1.5 ring-1 ring-inset ring-tint bg-tint rounded-sm text-[.875em]">{row.leftCmd}</code>
                 )}
               </div>
-              <div className="col-span-4 px-4 py-3 text-sm text-muted-foreground">{row.leftDesc}</div>
-              <div className="col-span-1 px-4 py-3 text-sm">{row.idx}</div>
-              <div className="col-span-2 px-4 py-3 text-sm font-semibold">{row.rightCmd}</div>
-              <div className="col-span-3 px-4 py-3 text-sm text-muted-foreground">{row.rightDesc}</div>
+              <div className="px-4 py-3 sm:col-span-4 text-sm text-muted-foreground">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Description</div>
+                {row.leftDesc}
+              </div>
+              <div className="px-4 py-3 sm:col-span-1 text-sm">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">#</div>
+                {row.idx}
+              </div>
+              <div className="px-4 py-3 sm:col-span-2 text-sm font-semibold">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Windows</div>
+                {row.rightCmd}
+              </div>
+              <div className="px-4 py-3 sm:col-span-3 text-sm text-muted-foreground">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Description</div>
+                {row.rightDesc}
+              </div>
             </motion.div>
           ))}
         </div>

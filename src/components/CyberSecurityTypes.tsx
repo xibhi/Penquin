@@ -112,7 +112,7 @@ const types: SecurityType[] = [
 export function CyberSecurityTypes() {
   return (
     <div className="space-y-6">
-        <div className="min-w-[720px] grid grid-cols-12 items-stretch">
+        <div className="hidden sm:grid grid-cols-12 items-stretch">
           <div className="col-span-3 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Type of Cybersecurity</div>
           <div className="col-span-4 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Description</div>
           <div className="col-span-3 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Related Job Roles</div>
@@ -127,12 +127,24 @@ export function CyberSecurityTypes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
-              className="grid grid-cols-12 items-start hover:bg-accent/40 transition-colors"
+              className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
             >
-              <div className="col-span-3 px-4 py-3 font-medium">{t.category}</div>
-              <div className="col-span-4 px-4 py-3 text-sm text-muted-foreground">{t.description}</div>
-              <div className="col-span-3 px-4 py-3 text-sm text-muted-foreground">{t.roles}</div>
-              <div className="col-span-2 px-4 py-3 text-sm">{t.beginner}</div>
+              <div className="px-4 py-3 sm:col-span-3">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Type</div>
+                <div className="font-medium">{t.category}</div>
+              </div>
+              <div className="px-4 py-3 sm:col-span-4">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Description</div>
+                <div className="text-sm text-muted-foreground">{t.description}</div>
+              </div>
+              <div className="px-4 py-3 sm:col-span-3">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Roles</div>
+                <div className="text-sm text-muted-foreground">{t.roles}</div>
+              </div>
+              <div className="px-4 py-3 sm:col-span-2">
+                <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Beginners</div>
+                <div className="text-sm">{t.beginner}</div>
+              </div>
             </motion.div>
           ))}
         </div>
