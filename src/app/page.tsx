@@ -28,7 +28,7 @@ export default function Home() {
           animate={isInView ? { opacity: 1, filter: 'blur(0px)', y: 0, transition: { delay: 0.4, duration: 0.3 } } : {}}
         >
           <div className="md:my-8 my-3 md:text-left md:max-w-3xl mx-auto align-middle">
-            <Terminal command={"wget https://raw.githubusercontent.com/xibhi/Penquin/refs/heads/main/ToolsInstaller.sh && sudo bash ToolsInstaller.sh"} />
+            <Terminal command={"wget https://raw.githubusercontent.com/xibhi/Penquin/refs/heads/master/ToolsInstaller.sh && sudo bash ToolsInstaller.sh"} />
           </div>
         </motion.div>
       </div>
