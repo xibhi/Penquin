@@ -44,7 +44,7 @@ export function Twitter() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((row) => (
           <div
-            key={row.index}
+            key={row.href}
             className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col"
           >
             <div className="space-y-2 flex-1 flex flex-col">
@@ -52,7 +52,7 @@ export function Twitter() {
                 <h3 className="text-lg font-semibold leading-tight">
                   {row.username}
                 </h3>
-                <span className="text-xs text-muted-foreground">#{row.index}</span>
+                <span className="text-xs text-muted-foreground">Twitter</span>
               </div>
 
               <p className="text-sm text-muted-foreground leading-snug">
