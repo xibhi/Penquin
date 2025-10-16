@@ -131,7 +131,7 @@ export function CLICommands() {
           <div className="col-span-3 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Description</div>
         </div>
         <div className="divide-y divide-border">
-          {commands.map((row, index) => (
+          {commands.map((row) => (
             <div
               key={`${row.idx}-${row.leftCmd}-${row.rightCmd}`}
               className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
