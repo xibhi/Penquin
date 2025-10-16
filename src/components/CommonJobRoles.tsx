@@ -55,36 +55,25 @@ const groups: RoleGroup[] = [
 export function CommonJobRoles() {
   return (
     <div className="space-y-8">
-      {groups.map((group, groupIdx) => (
+      {groups.map((group) => (
         <div key={`${group.title}-${group.level}`} className="space-y-3">
           <motion.h2
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.35, delay: groupIdx * 0.05, ease: 'easeOut' }}
             className="text-3xl font-semibold"
           >
             {group.title}
           </motion.h2>
 
           <motion.h3
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.3, delay: groupIdx * 0.05 + 0.05, ease: 'easeOut' }}
+            
             className="text-2xl font-semibold text-muted-foreground"
           >
             {group.level} Level
           </motion.h3>
 
           <ol className="space-y-2 list-decimal pl-5">
-            {group.roles.map((role, idx) => (
+          {group.roles.map((role) => (
               <motion.li
                 key={`${group.title}-${group.level}-${role}`}
-                initial={{ opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.25, delay: idx * 0.04, ease: 'easeOut' }}
               >
                 {role}
               </motion.li>

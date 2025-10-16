@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 
 interface CommandPair {
   leftCmd: string
@@ -133,12 +132,8 @@ export function CLICommands() {
         </div>
         <div className="divide-y divide-border">
           {commands.map((row, index) => (
-            <motion.div
+            <div
               key={`${row.idx}-${row.leftCmd}-${row.rightCmd}`}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
               className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
             >
               <div className="px-4 py-3 sm:col-span-2 text-sm font-mono">
@@ -163,7 +158,7 @@ export function CLICommands() {
                 <div className="sm:hidden text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Description</div>
                 {row.rightDesc}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       

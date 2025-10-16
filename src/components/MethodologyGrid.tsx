@@ -69,16 +69,9 @@ export function MethodologyGrid() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {methodologies.map((methodology, index) => (
+          {methodologies.map((methodology) => (
           <motion.div
             key={methodology.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.5, 
-              delay: index * 0.1,
-              ease: "easeOut" 
-            }}
             className="projects border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors cursor-pointer"
             onClick={() => handleCardClick(methodology.url)}
           >
@@ -88,9 +81,9 @@ export function MethodologyGrid() {
               </h3>
               
               <div className="flex flex-wrap gap-2">
-                {methodology.tags.map((tag, tagIndex) => (
+                {methodology.tags.map((tag) => (
                   <span 
-                    key={tagIndex}
+                    key={tag}
                     className="inline-flex items-center gap-1 rounded border border-border bg-muted text-muted-foreground px-2 py-0.5 text-xs"
                   >
                     <i className="fas fa-hashtag"></i>

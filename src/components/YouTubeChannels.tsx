@@ -59,12 +59,9 @@ export function YouTubeChannels() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {channels.map((channel, index) => (
+        {channels.map((channel) => (
           <motion.div
-            key={`${channel.name}-${channel.url}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }}
+            key={channel.name}
             className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col"
           >
             <div className="space-y-2 flex-1 flex flex-col">

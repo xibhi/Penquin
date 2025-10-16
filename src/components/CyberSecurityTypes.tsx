@@ -120,13 +120,10 @@ export function CyberSecurityTypes() {
         </div>
 
         <div className="divide-y divide-border">
-          {types.map((t, index) => (
+          {types.map((t) => (
             <motion.div
               key={t.category}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
+              
               className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
             >
               <div className="px-4 py-3 sm:col-span-3">

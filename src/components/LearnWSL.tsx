@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 
 //
 
@@ -76,11 +75,7 @@ const CopyCodeCard = ({ code, onCopied }: { code: string; onCopied?: () => void 
     } catch {}
   }
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
+    <div
       className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex items-start justify-between gap-3"
     >
       <code className="text-sm font-mono break-all">{code}</code>
@@ -92,7 +87,7 @@ const CopyCodeCard = ({ code, onCopied }: { code: string; onCopied?: () => void 
       >
         Copy
       </button>
-    </motion.div>
+    </div>
   )
 }
 
@@ -111,27 +106,23 @@ export function LearnWSL() {
   return (
     <div className="space-y-8">
       {toast && (
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.2 }}
+        <div
           className="fixed top-4 right-4 z-50 border border-border bg-card rounded-md shadow-md px-4 py-2 text-sm"
         >
           {toast}
-        </motion.div>
+        </div>
       )}
 
       {/* Installation section */}
-      {installSteps.map((step, idx) => (
+      {installSteps.map((step) => (
         <div key={step.title} className="space-y-2">
-          <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: idx * 0.04 }} className="text-xl font-semibold">
+          <h4 className="text-xl font-semibold">
             {step.title}
-          </motion.h4>
+          </h4>
           {step.body && (
-            <motion.p initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }}>
+            <p>
               {step.body}
-            </motion.p>
+            </p>
           )}
           {step.code && step.code.length > 0 && step.code.map((c) => (
             <CopyCodeCard key={c} code={c} onCopied={handleCopied} />
@@ -140,15 +131,15 @@ export function LearnWSL() {
       ))}
 
       {/* Extra WSL */}
-      <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">
+      <h3 className="text-2xl font-semibold">
         2. Extra WSL Commands to Get Started
-      </motion.h3>
-      {extraWSL.map((s, idx) => (
+      </h3>
+      {extraWSL.map((s) => (
         <div key={s.title} className="space-y-2">
-          <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: idx * 0.04 }} className="text-xl font-semibold">
+          <h4 className="text-xl font-semibold">
             {s.title}
-          </motion.h4>
-          {s.body && <motion.p initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25 }}>{s.body}</motion.p>}
+          </h4>
+          {s.body && <p>{s.body}</p>}
           {s.code && s.code.map((c) => (
             <CopyCodeCard key={c} code={c} onCopied={handleCopied} />
           ))}
@@ -156,15 +147,15 @@ export function LearnWSL() {
       ))}
 
       {/* WSLg Installation */}
-      <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">
+      <h3 className="text-2xl font-semibold">
         3. WSLg Installation
-      </motion.h3>
-      {wslgInstall.map((s, idx) => (
+      </h3>
+      {wslgInstall.map((s) => (
         <div key={s.title} className="space-y-2">
-          <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: idx * 0.04 }} className="text-xl font-semibold">
+          <h4 className="text-xl font-semibold">
             {s.title}
-          </motion.h4>
-          {s.body && <motion.p initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25 }}>{s.body}</motion.p>}
+          </h4>
+          {s.body && <p>{s.body}</p>}
           {s.code && s.code.map((c) => (
             <CopyCodeCard key={c} code={c} onCopied={handleCopied} />
           ))}
@@ -172,15 +163,15 @@ export function LearnWSL() {
       ))}
 
       {/* Additional Info on WSLg */}
-      <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">
+      <h3 className="text-2xl font-semibold">
         4. Additional Info on WSLg
-      </motion.h3>
-      <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }} className="text-xl font-semibold">
+      </h3>
+      <h4 className="text-xl font-semibold">
         Modes
-      </motion.h4>
+      </h4>
       <ul className="space-y-2">
-        {modes.map((m, idx) => (
-          <motion.li key={m.label} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: idx * 0.03 }}>
+        {modes.map((m) => (
+          <li key={m.label}>
             <span className="font-semibold">{m.label}</span>
             {m.code && (
               <span>
@@ -188,44 +179,44 @@ export function LearnWSL() {
                 {m.desc ? ` - ${m.desc}` : ''}
               </span>
             )}
-          </motion.li>
+          </li>
         ))}
       </ul>
 
-      <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }} className="text-xl font-semibold">
+      <h4 className="text-xl font-semibold">
         Commands
-      </motion.h4>
+      </h4>
       <ul className="space-y-2">
-        {commands.map((c, idx) => (
-          <motion.li key={c.label} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: idx * 0.03 }}>
+        {commands.map((c) => (
+          <li key={c.label}>
             <span className="font-semibold">{c.label}</span>
             {c.code && (
               <span>
                 : <code className="py-px px-1.5 ring-1 ring-inset ring-tint bg-tint rounded-sm text-[.875em]">{c.code}</code>
               </span>
             )}
-          </motion.li>
+          </li>
         ))}
       </ul>
 
-      <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }} className="text-xl font-semibold">
+      <h4 className="text-xl font-semibold">
         Optional Parameters
-      </motion.h4>
+      </h4>
       <ul className="space-y-2">
-        {optionalParams.map((p, idx) => (
-          <motion.li key={p.label} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: idx * 0.03 }}>
+        {optionalParams.map((p) => (
+          <li key={p.label}>
             <span className="font-semibold">{p.label}</span>: <code className="py-px px-1.5 ring-1 ring-inset ring-tint bg-tint rounded-sm text-[.875em]">{p.code}</code>
-          </motion.li>
+          </li>
         ))}
       </ul>
 
-      <motion.h4 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }} className="text-xl font-semibold">
+      <h4 className="text-xl font-semibold">
         Examples
-      </motion.h4>
+      </h4>
       <ul className="space-y-3">
-        {examples.map((e, idx) => (
+        {examples.map((e) => (
           <li key={e.body} className="space-y-2">
-            <motion.p initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: idx * 0.03 }}>{e.body}</motion.p>
+            <p>{e.body}</p>
             {e.code.map((c) => (
               <CopyCodeCard key={c} code={c} onCopied={handleCopied} />
             ))}

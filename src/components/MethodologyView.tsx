@@ -127,12 +127,9 @@ function MethodologyViewInner() {
   return (
     <div className="space-y-4 px-4 md:px-0">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <motion.div
             key={card.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
             className="projects h-full border border-border rounded-lg p-3 md:p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col"
           >
             <div className="space-y-3 md:space-y-4 flex-1 flex flex-col">

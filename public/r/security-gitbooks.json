@@ -1,0 +1,14 @@
+[
+  { "title": "Introduction | Book of BugBounty Tips", "label": "gowsundar.gitbook.io", "href": "https://gowsundar.gitbook.io/book-of-bugbounty-tips" },
+  { "title": "Introduction | Bug Hunter Handbook", "label": "gowthams.gitbook.io", "href": "https://gowthams.gitbook.io/bughunter-handbook" },
+  { "title": "/home/six2dez/.pentest-book | Pentest Book", "label": "pentestbook.six2dez.com", "href": "https://pentestbook.six2dez.com/" },
+  { "title": "Intro | learnsec101", "label": "notes.learnsec101.com", "href": "https://notes.learnsec101.com/101" },
+  { "title": "API-Sec | Sec-88", "label": "sallam.gitbook.io", "href": "https://sallam.gitbook.io/sec-88/api-sec" },
+  { "title": "Internal All The Things", "label": "swisskyrepo.github.io", "href": "https://swisskyrepo.github.io/InternalAllTheThings/" },
+  { "title": "Pentesting Pocket Book for hackers and developers. | HackBook.io", "label": "www.hackbook.io", "href": "https://www.hackbook.io/" },
+  { "title": "All of the Best Links and Resources on Cyber Security. | s0cm0nkey's Security Reference Guide", "label": "s0cm0nkey.gitbook.io", "href": "https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide" },
+  { "title": "HowToHunt.md | HowToHunt", "label": "kathan19.gitbook.io", "href": "https://kathan19.gitbook.io/howtohunt" },
+  { "title": "The Hacker Recipes", "label": "www.thehacker.recipes", "href": "https://www.thehacker.recipes/" },
+  { "title": "Pentesting - SecurityBoat Workbook", "label": "workbook.securityboat.net", "href": "https://workbook.securityboat.net/Pentesting/" },
+  { "title": "Talkback", "label": "Talkback", "href": "https://talkback.sh/" }
+]

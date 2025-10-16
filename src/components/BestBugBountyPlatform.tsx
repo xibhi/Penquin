@@ -34,13 +34,9 @@ export function BestBugBountyPlatform() {
   return (
     <div className="space-y-6">
         <div className="divide-y divide-border">
-          {platforms.map((row, index) => (
+          {platforms.map((row) => (
             <motion.div
-              key={`${row.idx}-${row.name}`}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.35, delay: index * 0.04, ease: 'easeOut' }}
+            key={row.name}
               className="grid grid-cols-12 items-start hover:bg-accent/40 transition-colors"
             >
               <div className="col-span-2 px-4 py-3 text-sm">{row.idx}</div>

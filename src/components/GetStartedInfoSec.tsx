@@ -22,10 +22,6 @@ export function GetStartedInfoSec() {
       <div className="space-y-2">
         <p className="text-base">This Page is shifted here:</p>
         <motion.a
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.35, ease: 'easeOut' }}
           className="group flex flex-row justify-between items-center gap-4 ring-1 ring-tint-subtle rounded-2xl px-5 py-3 transition-shadow hover:ring-primary-hover no-underline"
           href="https://whimsical-poultry-9ad.notion.site/The-Most-Practical-Cyber-Security-Roadmap-133b841caed9806c9b8be6e59a8236a2"
           target="_blank"
@@ -42,7 +38,7 @@ export function GetStartedInfoSec() {
 
       {/* Learn Linux */}
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Learn Linux</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">Learn Linux</motion.h3>
         <p className="font-bold">Learn Linux Command Line:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
@@ -51,7 +47,7 @@ export function GetStartedInfoSec() {
             { name: 'The Cyber Mentor', url: 'https://www.youtube.com/watch?v=rZsJieGi8os&list=LL&index=406' },
             { name: 'HackerSploit', url: 'https://www.youtube.com/playlist?list=PLBf0hzazHTGMh2fe2MFf3lCgk0rKmS2by' },
           ].map((item, index) => (
-            <motion.div key={`linux-cmd-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`linux-cmd-${index}`}  className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <div className="flex items-start justify-between">
                   <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
@@ -76,7 +72,7 @@ export function GetStartedInfoSec() {
             { name: 'Edureka', url: 'https://www.youtube.com/watch?v=ePN5igV9ZpY&list=LL&index=235' },
             { name: 'NetworkChuck', url: 'https://www.youtube.com/watch?v=A3G-3hp88mo&list=LL&index=399' },
           ].map((item, index) => (
-            <motion.div key={`linux-fs-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`linux-fs-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <div className="flex items-start justify-between">
                   <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
@@ -101,7 +97,7 @@ export function GetStartedInfoSec() {
             { name: 'Edureka CS Videos', url: 'https://www.youtube.com/watch?v=ePN5igV9ZpY&list=LL&index=235' },
             { name: 'Explain Shell', url: 'https://explainshell.com/#' },
           ].map((item, index) => (
-            <motion.div key={`linux-help-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`linux-help-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <div className="flex items-start justify-between">
                   <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
@@ -121,7 +117,7 @@ export function GetStartedInfoSec() {
 
       {/* Learn Programming Languages */}
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Learn Programming Languages</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">Learn Programming Languages</motion.h3>
         <div className="space-y-4">
           <div>
             <p className="font-bold">C++:</p>
@@ -134,7 +130,7 @@ export function GetStartedInfoSec() {
                 { name: 'Intro to String', url: 'https://www.geeksforgeeks.org/complete-guide-to-string-data-structure/?ref=footer' },
                 { name: 'Intro to Array', url: 'https://www.geeksforgeeks.org/complete-guide-to-arrays-data-structure/?ref=footer' },
               ].map((item, index) => (
-                <motion.div key={`cpp-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+                <motion.div key={`cpp-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
                   <div className="space-y-2 flex-1 flex flex-col">
                     <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                     <div className="pt-2 mt-auto">
@@ -154,7 +150,7 @@ export function GetStartedInfoSec() {
               {[
                 { name: 'Example Programs', url: 'https://www.geeksforgeeks.org/java-programming-examples/?ref=shm' },
               ].map((item, index) => (
-                <motion.div key={`java-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+                <motion.div key={`java-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
                   <div className="space-y-2 flex-1 flex flex-col">
                     <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                     <div className="pt-2 mt-auto">
@@ -176,7 +172,7 @@ export function GetStartedInfoSec() {
                 { name: 'GeeksForGeeks Python Tutorial', url: 'https://www.geeksforgeeks.org/python-programming-language/learn-python-tutorial/' },
                 { name: 'Projects', url: 'https://www.geeksforgeeks.org/python-projects-beginner-to-advanced/?ref=shm' },
               ].map((item, index) => (
-                <motion.div key={`python-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+                <motion.div key={`python-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
                   <div className="space-y-2 flex-1 flex flex-col">
                     <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                     <div className="pt-2 mt-auto">
@@ -201,7 +197,7 @@ export function GetStartedInfoSec() {
                 { name: 'BroCode (SQL)', url: 'https://www.youtube.com/watch?v=5OdVJbNCSso' },
                 { name: 'AapnaCollege (SQL)', url: 'https://www.youtube.com/watch?v=hlGoQC332VM' },
               ].map((item, index) => (
-                <motion.div key={`htmlcss-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+                <motion.div key={`htmlcss-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
                   <div className="space-y-2 flex-1 flex flex-col">
                     <div className="flex items-start justify-between">
                       <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
@@ -225,7 +221,7 @@ export function GetStartedInfoSec() {
 
       {/* Languages required in CyberSec */}
       <section className="space-y-2">
-        <motion.h4 initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }} className="text-xl font-semibold">Languages required in CyberSec</motion.h4>
+        <motion.h4 className="text-xl font-semibold">Languages required in CyberSec</motion.h4>
         <h5 className="text-base font-semibold">Web Development:</h5>
         {codeBlock(['1. HTML','2. CSS','3. JavaScript (JS)','4. PHP','5. MySQL','6. TypeScript'])}
         <h5 className="text-base font-semibold">General Programming:</h5>
@@ -238,7 +234,7 @@ export function GetStartedInfoSec() {
 
       {/* Top Platforms */}
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Top Platforms to Learn any Programming Language</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">Top Platforms to Learn any Programming Language</motion.h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { name: 'JavaTpoint', url: 'https://www.javatpoint.com/' },
@@ -248,7 +244,7 @@ export function GetStartedInfoSec() {
             { name: 'HackerRank', url: 'https://www.hackerrank.com/' },
             { name: 'Programiz', url: 'https://www.programiz.com/' },
           ].map((item, index) => (
-            <motion.div key={`platform-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`platform-${index}`}  className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                 <div className="pt-2 mt-auto">
@@ -265,7 +261,7 @@ export function GetStartedInfoSec() {
 
       {/* Intentionally Vulnerable / CTF */}
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Intentionally Vulnerable Applications to Practice or CTF Websites</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">Intentionally Vulnerable Applications to Practice or CTF Websites</motion.h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { name: 'TryHackMe', url: 'https://tryhackme.com/' },
@@ -287,7 +283,7 @@ export function GetStartedInfoSec() {
             { name: 'HackingHub', url: 'https://www.hackinghub.io' },
             { name: 'HBH.sh', url: 'https://hbh.sh/home' },
           ].map((item, index) => (
-            <motion.div key={`ctf-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`ctf-${index}`} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                 <div className="pt-2 mt-auto">
@@ -305,7 +301,7 @@ export function GetStartedInfoSec() {
 
       {/* CS Certifications */}
       <section className="space-y-2">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">CS Certifications</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">CS Certifications</motion.h3>
         {codeBlock([
           '1. Comptia: A+, Security+, Network+, Linux+, Pentest+, CySa+, casp+, ITF+',
           '2. EC-COUNCIL: CEH',
@@ -315,7 +311,7 @@ export function GetStartedInfoSec() {
 
       {/* Topics related to CS */}
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Topics related to CS</motion.h3>
+        <motion.h3 className="text-2xl font-semibold">Topics related to CS</motion.h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { name: 'Reverse & bind shell', url: 'https://medium.com/bugbountywriteup/reverse-shell-vs-bind-shell-d5a1e80b6a6c' },
@@ -341,7 +337,7 @@ export function GetStartedInfoSec() {
       </section>
 
       <section className="space-y-3">
-        <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Learn BurpSuite</motion.h3>
+        <motion.h3  className="text-2xl font-semibold">Learn BurpSuite</motion.h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { name: 'Bitten tech', url: 'https://www.youtube.com/playlist?list=PLkW9FMxqUvybgx3pI9x9HyU-_HcJJFWQY' },
@@ -354,7 +350,7 @@ export function GetStartedInfoSec() {
             { name: 'Cyberwings Security', url: 'https://www.youtube.com/playlist?list=PLa2xctTiNSCjVzFfxTn_UKkd-sS34EQaF' },
             { name: 'Technical MotaBhai', url: 'https://www.youtube.com/playlist?list=PLBCWFgREB971jxEXKbiAZSNQZqIxH9L47' },
           ].map((item, index) => (
-            <motion.div key={`topic-${index}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }} className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
+            <motion.div key={`topic-${index}`}  className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col">
               <div className="space-y-2 flex-1 flex flex-col">
                 <h3 className="text-lg font-semibold leading-tight">{item.name}</h3>
                 <div className="pt-2 mt-auto">
@@ -370,7 +366,7 @@ export function GetStartedInfoSec() {
       </section>
 
       <section className="space-y-2">
-      <motion.h3 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35 }} className="text-2xl font-semibold">Common CyberSec Tools</motion.h3>
+      <motion.h3  className="text-2xl font-semibold">Common CyberSec Tools</motion.h3>
         {codeBlock([
             '1. maltego, BurpSuite, Metasploit, Air-crack-ng, JohnTheRipper',
             '2. SQLMap, netcat, hashcat, kismet, wifite',

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 // Define type for commands
@@ -48,8 +48,6 @@ const commandTemplates: CommandDictionary = {
 }
 
 export const BugHuntingToolkit = () => {
-  const hasMounted = useRef(false)
-  useEffect(() => { hasMounted.current = true }, [])
   const [domain, setDomain] = useState('example.com')
   const [notification, setNotification] = useState('')
   const [showNotification, setShowNotification] = useState(false)
@@ -89,17 +87,13 @@ export const BugHuntingToolkit = () => {
     setTimeout(() => setShowNotification(false), 2000)
   }
 
-  const ToolCard = ({ title, description, commandId, multiline = false, index = 0 }: {
+  const ToolCard = ({ title, description, commandId, multiline = false }: {
     title: string
     description: string
     commandId: string
     multiline?: boolean
-    index?: number
   }) => (
     <motion.div
-      initial={hasMounted.current ? false : { opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
       className="projects border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors"
     >
       <div className="flex items-start justify-between mb-2">
@@ -124,9 +118,6 @@ export const BugHuntingToolkit = () => {
 
   const AnimatedGrid = ({ children, className }: { children: React.ReactNode, className?: string }) => (
     <motion.div
-      initial={hasMounted.current ? false : { opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
       className={className}
     >
       {children}
@@ -177,19 +168,16 @@ export const BugHuntingToolkit = () => {
             title="Basic Subdomain Discovery"
             description="Discovers subdomains using subfinder with recursive enumeration and saves results to a file."
             commandId="subfinder-basic"
-            index={0}
           />
           <ToolCard
             title="Live Subdomain Filtering"
             description="Filters discovered subdomains using httpx and saves the alive ones to a file."
             commandId="httpx-filter"
-            index={1}
           />
           <ToolCard
             title="Subdomain Takeover Check"
             description="Checks for subdomain takeover vulnerabilities using subzy."
             commandId="subzy-check"
-            index={2}
           />
         </AnimatedGrid>
       </section>
