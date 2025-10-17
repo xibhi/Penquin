@@ -7,6 +7,7 @@ import { docsOrderedSlugs } from '@/lib/docsOrder';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore - JSON import for simple config
 import docsMeta from '@/../content/docs/meta.json';
+import Link from 'next/link';
 
 type DocsMeta = { pages?: string[] };
 
@@ -30,6 +31,71 @@ function getPageBySlug(slug: string | undefined) {
   if (slug === undefined) return undefined;
   // Treat empty string as the root docs page
   return slug ? source.getPage([slug]) : source.getPage(undefined);
+}
+
+function getBreadcrumb(slug: string): { label: string; href: string }[] {
+  // Map slugs to their parent folder label in the sidebar
+  const bugHunters = new Set([
+    'arsenal', 'reconnaissance', 'methodology', 'extensions', 'writeups', 'youtube-channels'
+  ]);
+  const basics = new Set([
+    'cyber-security-types', 'common-job-roles', 'get-started-with-infosec', 'best-bug-bounty-platform', 'best-infosec-writeups-website', 'hacking-books', 'cli-commands', 'learn-wsl'
+  ]);
+  const hackers = new Set(['twitter', 'medium', 'youtube', 'discord', 'security-gitbooks']);
+
+  let trail: { label: string; href: string }[];
+
+  if (slug === '' || slug === 'index') {
+    trail = [
+      { label: 'Getting Started', href: '/docs' },
+      { label: 'Introduction', href: '/docs' },
+    ];
+  } else if (bugHunters.has(slug)) {
+    trail = [
+      { label: "Bug Hunter's Toolkit", href: '/docs/arsenal' },
+      { label: slugToTitle(slug), href: `/docs/${slug}` },
+    ];
+  } else if (basics.has(slug)) {
+    trail = [
+      { label: 'Learn the Basics', href: '/docs/cyber-security-types' },
+      { label: slugToTitle(slug), href: `/docs/${slug}` },
+    ];
+  } else if (hackers.has(slug)) {
+    trail = [
+      { label: 'Hackers to Follow', href: '/docs/twitter' },
+      { label: slugToTitle(slug), href: `/docs/${slug}` },
+    ];
+  } else {
+    trail = [{ label: slugToTitle(slug || 'docs'), href: `/docs/${slug}` }];
+  }
+
+  return [{ label: 'Docs', href: '/docs' }, ...trail];
+}
+
+function slugToTitle(slug: string): string {
+  const map: Record<string, string> = {
+    'index': 'Introduction',
+    'arsenal': 'Arsenal',
+    'reconnaissance': 'Reconnaissance',
+    'methodology': 'Methodology',
+    'extensions': 'Extensions',
+    'writeups': 'Writeups',
+    'youtube-channels': 'YouTube Channels',
+    'cyber-security-types': 'Cyber Security Types',
+    'common-job-roles': 'Common Job Roles',
+    'get-started-with-infosec': 'Get Started with Infosec',
+    'best-bug-bounty-platform': 'Best Bug Bounty Platform',
+    'best-infosec-writeups-website': 'Best Infosec Writeups Website',
+    'hacking-books': 'Hacking Books',
+    'cli-commands': 'CLI Commands',
+    'learn-wsl': 'Learn WSL',
+    'twitter': 'Twitter',
+    'medium': 'Medium',
+    'youtube': 'YouTube',
+    'discord': 'Discord',
+    'security-gitbooks': 'Security GitBooks',
+  };
+  return map[slug] ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }>; }) {
@@ -57,8 +123,21 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   const prevHref = prevSlug !== undefined ? `/docs/${prevSlug}` : undefined; // '' -> /docs/
   const nextHref = nextSlug !== undefined ? `/docs/${nextSlug}` : undefined;
 
+  const crumbSlug = currentKey === '' ? 'index' : currentKey;
+  const breadcrumbs = getBreadcrumb(crumbSlug);
+
   return (
     <div className="prose prose-gray dark:prose-invert max-w-none">
+      {/* Breadcrumbs */}
+      <nav className="mb-3 text-sm text-muted-foreground flex items-center gap-1">
+        {breadcrumbs.map((c, i) => (
+          <span key={`${c.href}-${i}`} className="inline-flex  my-3 ml-1 font-medium text-md items-center gap-1">
+            <Link className="hover:text-primary no-underline" href={c.href}>{c.label}</Link>
+            {i < breadcrumbs.length - 1 && <span className="px-1 text-muted-foreground">/</span>}
+          </span>
+        ))}
+      </nav>
+
       <h1 className="text-3xl font-bold mb-4">{page.data.title}</h1>
       {page.data.description && (
         <p className="text-lg text-muted-foreground mb-8">{page.data.description}</p>
@@ -111,5 +190,3 @@ export async function generateMetadata(props: { params: Promise<{ slug?: string[
 
   return { title: page.data.title, description: page.data.description };
 }
-
-

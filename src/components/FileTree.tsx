@@ -73,7 +73,7 @@ const fileTreeData: FileTreeItem[] = [
       { name: "Methodology", type: "file", path: "/docs/methodology" },
       { name: "Extensions", type: "file", path: "/docs/extensions" },
       { name: "Writeups", type: "file", path: "/docs/writeups" },
-      { name: "Youtube Channels", type: "file", path: "/docs/youtube-channels" },
+      { name: "YouTube Channels", type: "file", path: "/docs/youtube-channels" },
     ],
   },
   {
@@ -96,7 +96,7 @@ const fileTreeData: FileTreeItem[] = [
     children: [
       { name: "Twitter", type: "file", path: "/docs/twitter" },
       { name: "Medium", type: "file", path: "/docs/medium" },
-      { name: "Youtube", type: "file", path: "/docs/youtube" },
+      { name: "YouTube", type: "file", path: "/docs/youtube" },
       { name: "Discord", type: "file", path: "/docs/discord" },
       { name: "Security Gitbooks", type: "file", path: "/docs/security-gitbooks" },
     ],
@@ -116,15 +116,17 @@ const TreeIcon: React.FC<TreeIconProps> = ({ item }) => {
   return null;
 };
 
-function findFolderChainForPath(items: FileTreeItem[], path: string, chain: string[] = []): string[] | null {
+function getAllFolderNames(items: FileTreeItem[]): string[] {
+  const result: string[] = [];
   for (const item of items) {
-    if (item.type === "file" && item.path === path) return chain;
-    if (item.type === "folder" && item.children) {
-      const result = findFolderChainForPath(item.children, path, [...chain, item.name]);
-      if (result) return result;
+    if (item.type === "folder") {
+      result.push(item.name);
+      if (item.children) {
+        result.push(...getAllFolderNames(item.children));
+      }
     }
   }
-  return null;
+  return result;
 }
 
 const TreeNode: React.FC<TreeNodeProps> = ({
@@ -171,7 +173,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({
           )}
           <div className="flex items-center ml-1">
             <TreeIcon item={item} isOpen={isOpen} />
-            <span className="text-xs ml-1.5">{item.name}</span>
+            <span className="text-sm ml-1.5">{item.name}</span>
           </div>
         </div>
       </div>
@@ -212,14 +214,13 @@ export default function FileTree() {
     setMounted(true);
   }, []);
 
-  // Load persisted open folders once
+  // Load persisted open folders once; default to all folders open
   const [openFolders, setOpenFolders] = useState<Set<string>>(() => {
     try {
       const raw = typeof window !== "undefined" ? sessionStorage.getItem(STORAGE_KEY) : null;
       if (raw) return new Set(JSON.parse(raw));
     } catch {}
-    const chain = findFolderChainForPath(fileTreeData, currentPath) || [];
-    return new Set(chain);
+    return new Set(getAllFolderNames(fileTreeData));
   });
 
   // On mount, always restore from sessionStorage if present (guards SSR/hydration quirks)
@@ -227,6 +228,7 @@ export default function FileTree() {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEY);
       if (raw) setOpenFolders(new Set(JSON.parse(raw)));
+      else setOpenFolders(new Set(getAllFolderNames(fileTreeData)));
     } catch {}
   }, []);
 

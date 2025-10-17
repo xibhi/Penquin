@@ -112,11 +112,6 @@ const commands: CommandPair[] = [
   { leftCmd: 'uptime', leftDesc: 'Show how long the system has been running.', idx: 98, rightCmd: 'bcdedit', rightDesc: 'Edit boot configuration data.' },
   { leftCmd: 'history | grep [keyword]', leftDesc: 'Search command history for a keyword.', idx: 99, rightCmd: 'chkntfs', rightDesc: 'Check the NTFS file system.' },
   { leftCmd: 'chsh', leftDesc: 'Change your default shell.', idx: 100, rightCmd: 'fsutil', rightDesc: 'File and volume utilities.' },
-  { leftCmd: '', leftDesc: '', idx: 101, rightCmd: 'clip', rightDesc: 'Copy all the data in clipboard.' },
-  { leftCmd: '', leftDesc: '', idx: 102, rightCmd: 'findstr', rightDesc: 'Find a particular string in output.' },
-  { leftCmd: '', leftDesc: '', idx: 103, rightCmd: 'Explorer .', rightDesc: 'Open Folder for the current location.' },
-  { leftCmd: '', leftDesc: '', idx: 104, rightCmd: 'prompt name$G', rightDesc: 'Change prompt name.' },
-  { leftCmd: '', leftDesc: '', idx: 105, rightCmd: 'title', rightDesc: 'Change title name.' },
 ]
 
 export function CLICommands() {
@@ -131,7 +126,7 @@ export function CLICommands() {
           <div className="col-span-3 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Description</div>
         </div>
         <div className="divide-y divide-border">
-          {commands.map((row, index) => (
+          {commands.map((row) => (
             <div
               key={`${row.idx}-${row.leftCmd}-${row.rightCmd}`}
               className="grid grid-cols-1 sm:grid-cols-12 items-start hover:bg-accent/40 transition-colors"
