@@ -45,17 +45,17 @@ export function Twitter() {
         {items.map((row) => (
           <div
             key={row.href}
-            className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col"
+            className="projects h-full border border-border rounded-lg p-4 bg-card hover:bg-accent/50 transition-colors flex flex-col overflow-hidden"
           >
             <div className="space-y-2 flex-1 flex flex-col">
               <div className="flex items-start justify-between">
-                <h3 className="text-lg font-semibold leading-tight">
+                <h3 className="text-lg font-semibold leading-tight break-words">
                   {row.username}
                 </h3>
                 <span className="text-xs text-muted-foreground">Twitter</span>
               </div>
 
-              <p className="text-sm text-muted-foreground leading-snug">
+              <p className="text-sm text-muted-foreground leading-snug break-words">
                 Curated security account to follow on X (Twitter).
               </p>
 
@@ -64,7 +64,7 @@ export function Twitter() {
                   href={row.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors no-underline border-0 focus:outline-none focus:ring-0"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors no-underline border-0 focus:outline-none focus:ring-0 break-all"
                 >
                   <i className="fab fa-twitter"></i>
                   Open Profile

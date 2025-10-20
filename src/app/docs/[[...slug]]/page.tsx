@@ -8,6 +8,7 @@ import { docsOrderedSlugs } from '@/lib/docsOrder';
 // @ts-ignore - JSON import for simple config
 import docsMeta from '@/../content/docs/meta.json';
 import Link from 'next/link';
+import HighlightQuery from '@/components/HighlightQuery';
 
 type DocsMeta = { pages?: string[] };
 
@@ -142,9 +143,11 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
       {page.data.description && (
         <p className="text-lg text-muted-foreground mb-8">{page.data.description}</p>
       )}
-      <div className="prose prose-gray dark:prose-invert max-w-none">
+      <div id="docs-content-root" className="prose prose-gray dark:prose-invert max-w-none">
         <MDX components={getMDXComponents()} />
       </div>
+      {/* Client-side highlighter mounts here and highlights with query param ?q= */}
+      <HighlightQuery />
 
       {(prevHref || nextHref) && (
         <div className="flex flex-col md:flex-row mt-6 gap-2 max-w-3xl mx-auto text-muted-foreground">
