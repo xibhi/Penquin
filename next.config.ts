@@ -6,6 +6,14 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const NextConfig: NextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.notion.so',
+      },
+    ],
+  },
   async redirects() {
     return [
       {

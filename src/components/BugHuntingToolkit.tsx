@@ -84,7 +84,7 @@ export const BugHuntingToolkit = () => {
   const showNotificationMessage = (message: string) => {
     setNotification(message)
     setShowNotification(true)
-    setTimeout(() => setShowNotification(false), 2000)
+    setTimeout(() => setShowNotification(false), 1600)
   }
 
   const ToolCard = ({ title, description, commandId, multiline = false }: {
@@ -150,7 +150,7 @@ export const BugHuntingToolkit = () => {
 
       {/* Notification */}
       {showNotification && (
-        <div className="fixed top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-md shadow-lg z-50">
+        <div className="fixed top-4 right-4 z-50 border border-border bg-card rounded-md shadow-md px-4 py-2 text-sm">
           {notification}
         </div>
       )}
