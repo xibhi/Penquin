@@ -42,7 +42,7 @@ export const init = new Command()
 });
 
 async function addInitialSetup(cwd: string) {
-  const packageManager = getPackageManager();
+  const packageManager = await getPackageManager(cwd);
   
   // Install required dependencies
   await execa(packageManager, ['install', ...INITIAL_REQUIRED_DEPENDENCIES], { cwd });

@@ -1,36 +1,28 @@
-import { detect } from '@antfu/ni'
+import fs from 'fs'
+import path from 'path'
 
 export async function getPackageManager(
-  targetDir: string, // cwd for the root of users project
-  { withFallback }: { withFallback?: boolean } = {
-    withFallback: false,
-  }
+  targetDir: string,
+  { withFallback }: { withFallback?: boolean } = { withFallback: false }
 ): Promise<'yarn' | 'pnpm' | 'bun' | 'npm' | 'deno'> {
-  const packageManager = await detect({ programmatic: true, cwd: targetDir })
+  const hasFile = (file: string) => fs.existsSync(path.join(targetDir, file))
 
-  if (packageManager === 'yarn@berry') return 'yarn'
-  if (packageManager === 'pnpm@6') return 'pnpm'
-  if (packageManager === 'bun') return 'bun'
-  if (packageManager === 'deno') return 'deno'
+  // Detect by lockfiles first
+  if (hasFile('pnpm-lock.yaml')) return 'pnpm'
+  if (hasFile('yarn.lock')) return 'yarn'
+  if (hasFile('bun.lockb')) return 'bun'
+  if (hasFile('deno.json') || hasFile('deno.jsonc')) return 'deno'
+
   if (!withFallback) {
-    return packageManager ?? 'npm'
+    // Fall back to npm when no explicit indicator is found
+    return 'npm'
   }
 
-  // Fallback to user agent if not detected.
+  // Fallback to user agent if requested
   const userAgent = process.env.npm_config_user_agent || ''
-
-  if (userAgent.startsWith('yarn')) {
-    return 'yarn'
-  }
-
-  if (userAgent.startsWith('pnpm')) {
-    return 'pnpm'
-  }
-
-  if (userAgent.startsWith('bun')) {
-    return 'bun'
-  }
-
+  if (userAgent.startsWith('yarn')) return 'yarn'
+  if (userAgent.startsWith('pnpm')) return 'pnpm'
+  if (userAgent.startsWith('bun')) return 'bun'
   return 'npm'
 }
 
