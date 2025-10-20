@@ -35,7 +35,7 @@ export default function HighlightQuery({ rootSelector = '#docs-content-root' }: 
       unwrapExistingMarks()
 
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-        acceptNode: (node) => {
+        acceptNode: (node: Node) => {
           const parent = node.parentElement
           if (!parent) return NodeFilter.FILTER_REJECT
           if (skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT
@@ -43,7 +43,7 @@ export default function HighlightQuery({ rootSelector = '#docs-content-root' }: 
           regex.lastIndex = 0
           return NodeFilter.FILTER_ACCEPT
         }
-      } as unknown as NodeFilter)
+      })
 
       const textNodes: Text[] = []
       let n = walker.nextNode()
