@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const codeBlock = (lines: string[]) => (
   <pre className="relative overflow-auto border border-tint-subtle bg-tint-subtle theme-muted:bg-tint-base p-2 rounded-md shadow-xs">
@@ -27,7 +28,13 @@ export function GetStartedInfoSec() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img alt="Notion" className="w-5 h-5 block" src="https://www.notion.so/front-static/logo-ios.png" />
+          <Image
+            alt="Notion"
+            src="https://www.notion.so/front-static/logo-ios.png"
+            width={20}
+            height={20}
+            className="w-5 h-5 block"
+          />
           <span className="flex flex-col flex-1">
             <span className="text-base transition-colors group-hover:text-primary">The Most Practical Cyber Security Roadmap | Notion</span>
             <span className="text-xs text-muted-foreground">whimsical-poultry-9ad on Notion</span>
