@@ -1,0 +1,16 @@
+{
+  "name": "tags",
+  "title": "Tags",
+  "description": "Tags Component to showcase tags in a stylish way",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/tags.tsx",
+      "type": "registry:ui",
+      "content": "'use client'\r\n\r\nimport React from 'react'\r\nimport { motion } from 'motion/react'\r\nimport { cn } from '@/lib/utils'\r\n\r\ntype ItemType = {\r\n  name: string,\r\n  logo: React.ReactNode\r\n}\r\n\r\nconst Tags = ({ overlap, children }: { overlap: boolean, children: React.ReactNode }) => {\r\n  return (\r\n    <div \r\n      className='flex justify-center items-center'\r\n      style={{ \r\n        '--tag-overlap': overlap ? '-0.2rem' : '0',\r\n      } as React.CSSProperties}\r\n    >\r\n      {children}\r\n    </div>\r\n  )\r\n}\r\n\r\nTags.displayName = 'Tags'\r\n\r\nconst TagItem = ({ item }: { item: ItemType }) => {\r\n  return (\r\n    <motion.div\r\n      layout\r\n      whileHover={'animate'}\r\n      whileTap={'animate'}\r\n      initial={'initial'}\r\n      className={cn(\r\n        'flex cursor-pointer',\r\n        'mx-[var(--tag-overlap)]'\r\n      )}\r\n    >\r\n      <motion.div\r\n        variants={{\r\n          animate: { paddingRight: 2 }\r\n        }}\r\n        transition={{\r\n          type: 'spring'\r\n        }}\r\n        className='flex items-center'\r\n      >\r\n        {item.logo}\r\n      </motion.div>\r\n      <motion.div\r\n        variants={{\r\n          initial: { width: 0 },\r\n          animate: { width: 'auto' },\r\n          exit: { width: 0 }\r\n        }}\r\n        transition={{\r\n          type: 'spring',\r\n          stiffness: 200,\r\n          damping: 20,\r\n          mass: 0.5\r\n        }}\r\n        className='overflow-hidden whitespace-nowrap font-sans'\r\n      >\r\n        {item.name}\r\n      </motion.div>\r\n    </motion.div>\r\n  )\r\n}\r\n\r\nTagItem.displayName = 'TagItem'\r\n\r\nexport { Tags, TagItem }"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ]
+}

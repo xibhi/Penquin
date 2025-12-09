@@ -1,0 +1,19 @@
+{
+  "name": "dark-mode-toggle",
+  "title": "Dark Mode Toggle Button",
+  "description": "A Toggle button component to toggle themes",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/dark-mode-toggle.tsx",
+      "type": "registry:ui",
+      "content": "'use client'\r\n\r\nimport React from 'react'\r\nimport { cn } from '@/lib/utils';\r\n\r\nimport { IconMoon, IconSun } from '@tabler/icons-react';\r\nimport { Button } from './button';\r\n\r\nexport interface DarkModeToggleProps\r\n  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {\r\n    toggleDark: () => void\r\n  }\r\n\r\nconst DarkModeToggle = ({ className, toggleDark, ...props }: DarkModeToggleProps) => {\r\n  return (\r\n    <Button\r\n      size={'icon'}\r\n      variant={'secondary'}\r\n      className={cn(\r\n        'relative bg-gray-100 dark:bg-zinc-900 rounded-full',\r\n        className,\r\n      )}\r\n      onClick={toggleDark}\r\n      {...props}\r\n    >\r\n      <IconMoon className='rotate-0 scale-100 dark:rotate-90 dark:scale-0 transition-all duration-200 absolute left-1/2 top-1/2 -translate-1/2' />\r\n      <IconSun className='rotate-90 scale-0 dark:rotate-0 dark:scale-90 transition-all duration-200 absolute left-1/2 top-1/2 -translate-1/2' />\r\n    </Button>\r\n  )\r\n}\r\n\r\nDarkModeToggle.displayName = 'DarkModeToggle'\r\n\r\nexport { DarkModeToggle }"
+    }
+  ],
+  "dependencies": [
+    "@tabler/icons-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}

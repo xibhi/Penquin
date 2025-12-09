@@ -1,0 +1,13 @@
+{
+  "name": "input",
+  "title": "Input",
+  "description": "A Simple Input Component",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/input.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils'\r\nimport { cva, VariantProps } from 'class-variance-authority'\r\nimport * as React from 'react'\r\n\r\nconst inputVariants = cva(\r\n  'h-9 w-full border border-border rounded-md px-3 py-1 text-sm shadow-sm focus-visible:outline-none disabled:opacity-50',\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: 'bg-transparent',\r\n        filled: 'bg-muted'\r\n      }\r\n    },\r\n    defaultVariants: {\r\n      variant: 'default'\r\n    }\r\n  }\r\n)\r\n\r\nexport interface InputProps\r\nextends React.ComponentProps<'input'>,\r\nVariantProps<typeof inputVariants> {}\r\n\r\nconst Input = React.forwardRef<HTMLInputElement, InputProps>(\r\n  ({className, variant, type, ...props}, ref) => (\r\n    <input\r\n      type={type}\r\n      className={cn(inputVariants({ variant, className }))}\r\n      ref={ref}\r\n      {...props}\r\n    />\r\n  )\r\n)\r\n\r\nInput.displayName = 'Input'\r\n\r\nexport { Input }\r\n"
+    }
+  ]
+}

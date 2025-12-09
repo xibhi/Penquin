@@ -1,0 +1,20 @@
+{
+  "name": "accordion-block",
+  "title": "Accordion Block",
+  "description": "A Accordion Block component to add for FAQs section",
+  "type": "registry:block",
+  "files": [
+    {
+      "path": "registry/components/block/accordion-block.tsx",
+      "type": "registry:block",
+      "content": "'use client'\r\n\r\nimport React from 'react'\r\nimport { motion, useInView } from 'motion/react'\r\nimport { cn } from '@/lib/utils'\r\nimport { Headline } from '../ui/headline'\r\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'\r\n\r\nexport type AccordionItemType = {\r\n  trigger: string,\r\n  content: string\r\n}\r\n\r\nconst AccordionBlock = ({\r\n  title,\r\n  accordionItems,\r\n  className\r\n}: {\r\n  title: React.ReactNode,\r\n  accordionItems: AccordionItemType[],\r\n  className?: string\r\n}) => {\r\n  const scope = React.useRef<HTMLDivElement>(null);\r\n  const isInView = useInView(\r\n    scope,\r\n    {\r\n      once: false,\r\n      amount: 0.3\r\n    }\r\n  )\r\n\r\n  const [startAnimation, setStartAnimation] = React.useState(false);\r\n\r\n  React.useEffect(() => {\r\n    if (isInView && !startAnimation) setStartAnimation(true)\r\n  }, [isInView, startAnimation, setStartAnimation]);\r\n\r\n  const appearVariant = {\r\n    animate: {\r\n      opacity: 1,\r\n      filter: 'blur(0px)',\r\n      scale: 1,\r\n      y: 0\r\n    },\r\n    halt: {\r\n      opacity: 0.5,\r\n      filter: 'blur(10px)',\r\n      scale: 0.95,\r\n      y: 100\r\n    }\r\n  }\r\n\r\n  return (\r\n    <motion.div\r\n      initial={false}\r\n      animate={startAnimation ? 'animate' : 'halt'}\r\n      className={cn(\r\n        'flex flex-col md:flex-row md:gap-16 gap-8 relative md:w-[70%] w-[90%] mx-auto my-18',\r\n        className\r\n      )}\r\n    >\r\n      <motion.div\r\n        variants={appearVariant}\r\n        transition={{\r\n          duration: 0.3\r\n        }}\r\n        ref={scope}\r\n      >\r\n        <Headline className='md:sticky md:top-16 z-50 md:text-start'>{title}</Headline>\r\n      </motion.div>\r\n      <motion.div\r\n        variants={appearVariant}\r\n        transition={{ delay: 0.3, duration: 0.4 }}\r\n        className='md:w-1/2 mx-auto'\r\n      >\r\n        <Accordion type='single' collapsible className='w-full'>\r\n          {\r\n            accordionItems.map((item, idx) => (\r\n              <AccordionItem value={`item-${idx}`} key={`item-${idx}`}>\r\n                <AccordionTrigger>{item.trigger}</AccordionTrigger>\r\n                <AccordionContent>{item.content}</AccordionContent>\r\n              </AccordionItem>\r\n            ))\r\n          }\r\n        </Accordion>\r\n      </motion.div>\r\n    </motion.div>\r\n  )\r\n}\r\n\r\nexport default AccordionBlock\r\n"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "headline",
+    "accordion"
+  ]
+}
