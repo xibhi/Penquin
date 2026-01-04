@@ -176,18 +176,18 @@ const Navbar = () => {
         setIsLoading(false)
         return
       }
-      
+
       setIsLoading(true)
-      
+
       // Use client-side search with all docs content
       const searchResults = searchDocs(query, allDocs)
-      
+
       if (active) {
         setResults(searchResults)
         setIsLoading(false)
       }
     }, 200)
-    
+
     return () => {
       active = false
       clearTimeout(timeout)
@@ -203,19 +203,19 @@ const Navbar = () => {
               src={'/Penquin.png'}
               height={30}
               width={30}
-              alt='Logo'
+              alt='Penquin - Cyber Security Tool Logo'
               className='rounded-md invert dark:invert-0'
             />
             <h2 className='text-xl font-sans font-bold tracking-tight'>Penquin</h2>
           </Link>
           {isDocs && (
-          <Link
-            href={'/docs'}
-            className='hidden lg:flex items-center gap-2 text-foreground no-underline absolute left-[18rem]'
-          >
-            <span className='text-xl font-sans font-bold tracking-tight'>Documentation</span>
-          </Link>
-        )}
+            <Link
+              href={'/docs'}
+              className='hidden lg:flex items-center gap-2 text-foreground no-underline absolute left-[18rem]'
+            >
+              <span className='text-xl font-sans font-bold tracking-tight'>Documentation</span>
+            </Link>
+          )}
         </div>
         <div className='flex items-center gap-2'>
           {isDocs && (

@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Penquin',
-        short_name: 'Penquin',
-        description: 'Level up your bug bounty game with pre-built commands, streamlined workflows, and insider resources.',
+        name: 'Penquin - Cyber Security Tool',
+        short_name: 'Penquin Tool',
+        description: 'Level up your bug bounty game with Penquin Tool. Pre-built commands, streamlined workflows, and insider resources for Cyber Security researchers.',
         start_url: '/',
         display: 'standalone',
         background_color: '#000000',

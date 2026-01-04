@@ -21,37 +21,74 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: "Penquin",
-  description: "Level up your bug bounty game with pre-built commands, streamlined workflows, and insider resources. Cut the clutter and hack smarter.",
-  keywords: ["bug bounty", "penetration testing", "cybersecurity", "ethical hacking", "security tools", "command line", "hacking workflows"],
+  title: {
+    default: "Penquin ",
+    template: "%s | Penquin Tool"
+  },
+  description: "Penquin is a powerful Cyber Security tool designed for Bug Bounty hunters and security researchers. Level up your game with pre-built commands, streamlined workflows, and insider resources. Cut the clutter and hack smarter with the Penquin Tool.",
+  keywords: [
+    "Penquin",
+    "Penquin Tool",
+    "Cyber Security",
+    "Bug Bounty",
+    "Bug Bounty Tools",
+    "Ethical Hacking",
+    "Penetration Testing",
+    "Security Automation",
+    "Reconnaissance",
+    "Vulnerability Assessment",
+    "AppSec",
+    "Hacking Workflows",
+    "InfoSec Tooling"
+  ],
+  authors: [{ name: "Penquin Team", url: "https://penquin.vercel.app" }],
+  creator: "Penquin",
+  publisher: "Penquin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "Penquin",
-    description: "Level up your bug bounty game with pre-built commands, streamlined workflows, and insider resources.",
+    title: "Penquin - The Ultimate Cyber Security & Bug Bounty Tool",
+    description: "Level up your bug bounty game with Penquin Tool. Pre-built commands, streamlined workflows, and insider resources for Cyber Security professionals.",
+    url: 'https://penquin.vercel.app',
     siteName: "Penquin",
     type: "website",
     locale: "en_US",
     images: [
       {
         url: '/logo.jpg',
-        width: 800,
-        height: 600,
-        alt: "Penquin Logo",
+        width: 1200,
+        height: 630,
+        alt: "Penquin - Cyber Security Tool",
       }
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Penquin",
-    description: "Level up your bug bounty game with pre-built commands, streamlined workflows, and insider resources.",
+    title: "Penquin - The Ultimate Cyber Security & Bug Bounty Tool",
+    description: "Master Bug Bounty with Penquin. The essential tool for Cyber Security researchers featuring pre-built commands and elite workflows.",
     images: ['/logo.jpg'],
+    creator: "@PenquinTool",
   },
   icons: {
-    icon: '/logo.jpg'
+    icon: '/logo.jpg',
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
   },
   robots: {
     index: true,
     follow: true,
-  }
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  category: 'technology',
 };
 
 export default function RootLayout({

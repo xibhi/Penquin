@@ -222,5 +222,18 @@ export async function generateMetadata(props: { params: Promise<{ slug?: string[
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
-  return { title: page.data.title, description: page.data.description };
+  return {
+    title: page.data.title,
+    description: page.data.description || `Learn about ${page.data.title} in the Penquin Tool documentation. Advanced Cyber Security resources and Bug Bounty workflows.`,
+    openGraph: {
+      title: `${page.data.title} | Penquin Tool Docs`,
+      description: page.data.description,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${page.data.title} | Penquin Tool Docs`,
+      description: page.data.description,
+    }
+  };
 }

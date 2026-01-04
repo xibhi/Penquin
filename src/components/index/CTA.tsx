@@ -7,12 +7,9 @@ const CTA = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-8 mx-auto mt-30 mb-12'>
       <div className='md:space-y-2'>
-        <h1 className='font-sans tracking-tight text-3xl md:text-5xl font-bold mx-8 text-center'>
+        <h2 className='font-sans tracking-tight text-3xl md:text-5xl font-bold mx-8 text-center'>
           Streamline Your Bug Bounty Workflow — Hack Smarter, Not Harder
-        </h1>
-        <h1 className='font-sans tracking-tight mx-8 text-center text-muted-foreground'>
-         
-        </h1>
+        </h2>
       </div>
       <div className='flex gap-4'>
         <Button asChild className='w-max'>

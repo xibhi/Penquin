@@ -47,7 +47,7 @@ const Footer = () => {
               src={'/Penquin.png'}
               height={30}
               width={30}
-              alt='Logo'
+              alt='Penquin - Cyber Security Tool Logo'
               className='rounded-md invert dark:invert-0'
             />
             <h2 className='text-2xl font-sans font-bold tracking-tight'>Penquin</h2>
