@@ -1,0 +1,264 @@
+{
+  "$schema": "./registry.schema.json",
+  "title": "Vink Component Registry",
+  "description": "CLI for Vink to add components",
+  "items": [
+    {
+      "name": "button",
+      "title": "Button",
+      "description": "A Simple button component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle",
+      "description": "A Simple fluidic animated toggle",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "triple-toggle",
+      "title": "Triple Toggle",
+      "description": "A animated Triple Toggle Component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/triple-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@tabler/icons-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "text-animation",
+      "title": "Text Animation",
+      "description": "A Text Animation component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/text-animation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "input",
+      "title": "Input",
+      "description": "A Simple Input Component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "headline",
+      "title": "Headline",
+      "description": "A gradient text headline for landing pages",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/headline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dark-mode-toggle",
+      "title": "Dark Mode Toggle Button",
+      "description": "A Toggle button component to toggle themes",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/dark-mode-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@tabler/icons-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "animated-search-input",
+      "title": "Animated Search Input",
+      "description": "A animated seach input component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/animated-search-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "title": "Alert Dialog",
+      "description": "A Alert Dialog Component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-alert-dialog",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "accordion",
+      "title": "Accordion",
+      "description": "A accordion component",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "@tabler/icons-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "tags",
+      "title": "Tags",
+      "description": "Tags Component to showcase tags in a stylish way",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/components/ui/tags.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "accordion-block",
+      "title": "Accordion Block",
+      "description": "A Accordion Block component to add for FAQs section",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/components/block/accordion-block.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "headline",
+        "accordion"
+      ]
+    },
+    {
+      "items": [
+    {
+      "name": "api-response-and-error",
+      "title": "Standard API Resoponse and Error",
+      "description": "Standard API Resoponse and Error snippet",
+      "type": "registry:snippet",
+      "files": [
+        {
+          "path": "registry/backend-snippets/src/utils/apiResponse.ts",
+          "type": "registry:snippet",
+          "target": "src/utils"
+        },
+        {
+          "path": "registry/backend-snippets/src/utils/apiError.ts",
+          "type": "registry:snippet",
+          "target": "src/utils"
+        }
+      ]
+    },
+    {
+      "name": "nodemailer-setup",
+      "title": "Advanced Nodemailer Setup",
+      "description": "Advanced Nodemailer Setup with rate limiting and retries accessibility",
+      "type": "registry:snippet",
+      "files": [
+        {
+          "path": "registry/backend-snippets/src/utils/nodemailer.ts",
+          "type": "registry:snippet",
+          "target": "src/utils"
+        }
+      ],
+      "dependencies": [
+        "nodemailer",
+        "googleapis"
+      ],
+      "devDependencies": [
+        "@types/nodemailer"
+      ]
+    },
+    {
+      "name": "express-setup",
+      "title": "Express Setup",
+      "description": "Express Setup with all the standard middleware and configurations",
+      "type": "registry:snippet",
+      "files": [
+        {
+          "path": "registry/backend-snippets/src/app.ts",
+          "type": "registry:snippet",
+          "target": "src"
+        },
+        {
+          "path": "registry/backend-snippets/src/index.ts",
+          "type": "registry:snippet",
+          "target": "src"
+        }
+      ],
+      "dependencies": [
+        "express",
+        "cors",
+        "cookie-parser",
+        "dotenv"
+      ],
+      "devDependencies": [
+        "@types/express",
+        "@types/cors",
+        "@types/cookie-parser"
+      ]
+    }
+  ]
+}
