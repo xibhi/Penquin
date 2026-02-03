@@ -1,6 +1,8 @@
 import { source } from '@/lib/source'
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://penquin.vercel.app';
     const docs = source.getPages().map((page) => ({

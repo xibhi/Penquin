@@ -195,8 +195,8 @@ const Navbar = () => {
   }, [query, allDocs])
 
   return (
-    <div className='h-16 w-full'>
-      <div className='fixed w-full inset-x-0 bg-background border-b border-border top-0 z-50 flex justify-between items-center md:px-20 px-8 py-4'>
+    <div className='h-20 w-full'>
+      <div className='fixed w-full inset-x-0 bg-background border-b border-border top-0 z-50 flex justify-between items-center md:px-20 px-6 py-5 md:py-6'>
         <div className='flex items-center'>
           <Link href={'/'} className='flex items-center gap-2'>
             <Image
@@ -210,7 +210,7 @@ const Navbar = () => {
           </Link>
           {isDocs && (
             <Link
-              href={'/docs'}
+              href={'/docs/'}
               className='hidden lg:flex items-center gap-2 text-foreground no-underline absolute left-[18rem]'
             >
               <span className='text-xl font-sans font-bold tracking-tight'>Documentation</span>

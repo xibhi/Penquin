@@ -6,23 +6,23 @@ import { FaGithub, FaXTwitter } from 'react-icons/fa6'
 const footLinks = [
   {
     name: 'Essentials',
-    href: '/docs'
+    href: '/docs/'
   },
   {
     name: 'Arsenal',
-    href: '/docs/arsenal'
+    href: '/docs/arsenal/'
   },
   {
     name: 'Reconnaissance',
-    href: '/docs/reconnaissance'
+    href: '/docs/reconnaissance/'
   },
   {
     name: 'Extensions',
-    href: '/docs/extensions'
+    href: '/docs/extensions/'
   },
   {
     name: 'Writeups',
-    href: '/docs/writeups'
+    href: '/docs/writeups/'
   }
 ]
 

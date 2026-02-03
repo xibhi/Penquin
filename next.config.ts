@@ -5,28 +5,17 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const NextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'www.notion.so',
       },
     ],
-  },
-  async redirects() {
-    return [
-      {
-        source: '/v1',
-        destination: '/docs',
-        permanent: true,
-      },
-      {
-        source: '/v1/:path*',
-        destination: '/docs/:path*',
-        permanent: true,
-      },
-    ];
   },
 };
 

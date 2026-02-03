@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Penquin</string>
+    <string name="title_activity_main">Penquin</string>
+    <string name="package_name">com.penquin.app</string>
+    <string name="custom_url_scheme">com.penquin.app</string>
+</resources>

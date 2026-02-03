@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         {/* Mobile Hamburger Menu */}
         <button
           onClick={toggleSidebar}
-          className='fixed top-4 left-4 z-50 lg:hidden p-2 rounded-md bg-background border border-border shadow-lg hover:bg-accent transition-colors'
+          className='fixed top-5 left-4 z-50 lg:hidden p-2 rounded-md bg-background border border-border shadow-lg hover:bg-accent transition-colors'
           aria-label='Toggle sidebar'
         >
           <svg
@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         {sidebarOpen && (
           <button
             onClick={toggleSidebar}
-            className='fixed top-4 right-4 z-50 lg:hidden p-2 rounded-md bg-background border border-border shadow-lg hover:bg-accent transition-colors'
+            className='fixed top-5 right-4 z-50 lg:hidden p-2 rounded-md bg-background border border-border shadow-lg hover:bg-accent transition-colors'
             aria-label='Close sidebar and go back'
           >
             <svg
@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           initial={{ x: -320 }}
           animate={{ x: sidebarOpen ? 0 : -320 }}
           transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-          className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-background border-r border-border overflow-y-auto z-50 text-xs lg:hidden"
+          className="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 bg-background border-r border-border overflow-y-auto z-50 text-xs lg:hidden"
         >
           <div className='p-2 pt-4'>
             <div className='flex items-center justify-between mb-3'>
@@ -111,13 +111,13 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {/* Desktop Sidebar (static) */}
         <div
-          className="hidden lg:block fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-background border-r border-border overflow-y-auto z-40 text-xs"
+          className="hidden lg:block fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 bg-background border-r border-border overflow-y-auto z-40 text-xs"
         >
           <div className='p-2 pt-4'>
             <FileTree />
           </div>
         </div>
-        
+
         {/* Main Content */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -125,7 +125,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           transition={{ duration: 0.25, ease: 'easeOut' }}
           className='min-h-screen w-full lg:ml-72 text-xl'
         >
-          <div className='max-w-4xl mx-auto px-4 py-4 sm:px-6 pt-16 lg:pt-4'>
+          <div className='max-w-4xl mx-auto px-4 py-4 sm:px-6 pt-2 lg:pt-4'>
             {children}
           </div>
         </motion.div>

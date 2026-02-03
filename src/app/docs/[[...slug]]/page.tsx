@@ -50,34 +50,34 @@ function getBreadcrumb(slug: string): { label: string; href: string }[] {
 
   if (slug === '' || slug === 'index') {
     trail = [
-      { label: 'Getting Started', href: '/docs' },
-      { label: 'Introduction', href: '/docs' },
+      { label: 'Getting Started', href: '/docs/' },
+      { label: 'Introduction', href: '/docs/' },
     ];
   } else if (bugHunters.has(slug)) {
     trail = [
-      { label: "Bug Hunter's Toolkit", href: '/docs/arsenal' },
-      { label: slugToTitle(slug), href: `/docs/${slug}` },
+      { label: "Bug Hunter's Toolkit", href: '/docs/arsenal/' },
+      { label: slugToTitle(slug), href: `/docs/${slug}/` },
     ];
   } else if (basics.has(slug)) {
     trail = [
-      { label: 'Learn the Basics', href: '/docs/cyber-security-types' },
-      { label: slugToTitle(slug), href: `/docs/${slug}` },
+      { label: 'Learn the Basics', href: '/docs/cyber-security-types/' },
+      { label: slugToTitle(slug), href: `/docs/${slug}/` },
     ];
   } else if (hackers.has(slug)) {
     trail = [
-      { label: 'Hackers to Follow', href: '/docs/twitter' },
-      { label: slugToTitle(slug), href: `/docs/${slug}` },
+      { label: 'Hackers to Follow', href: '/docs/twitter/' },
+      { label: slugToTitle(slug), href: `/docs/${slug}/` },
     ];
   } else if (androidBugBounty.has(slug)) {
     trail = [
-      { label: 'Android Bug Bounty', href: '/docs/video-tutorials' },
-      { label: slugToTitle(slug), href: `/docs/${slug}` },
+      { label: 'Android Bug Bounty', href: '/docs/video-tutorials/' },
+      { label: slugToTitle(slug), href: `/docs/${slug}/` },
     ];
   } else {
-    trail = [{ label: slugToTitle(slug || 'docs'), href: `/docs/${slug}` }];
+    trail = [{ label: slugToTitle(slug || 'docs'), href: `/docs/${slug}/` }];
   }
 
-  return [{ label: 'Docs', href: '/docs' }, ...trail];
+  return [{ label: 'Docs', href: '/docs/' }, ...trail];
 }
 
 function slugToTitle(slug: string): string {
@@ -143,8 +143,8 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   const prevPage = getPageBySlug(prevSlug);
   const nextPage = getPageBySlug(nextSlug);
 
-  const prevHref = prevSlug !== undefined ? `/docs/${prevSlug}` : undefined; // '' -> /docs/
-  const nextHref = nextSlug !== undefined ? `/docs/${nextSlug}` : undefined;
+  const prevHref = prevSlug !== undefined ? `/docs/${prevSlug ? `${prevSlug}/` : ""}` : undefined;
+  const nextHref = nextSlug !== undefined ? `/docs/${nextSlug ? `${nextSlug}/` : ""}` : undefined;
 
   const crumbSlug = currentKey === '' ? 'index' : currentKey;
   const breadcrumbs = getBreadcrumb(crumbSlug);
@@ -183,7 +183,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
       {(prevHref || nextHref) && (
         <div className="flex flex-col md:flex-row mt-6 gap-2 max-w-3xl mx-auto text-muted-foreground">
           {prevHref && (
-            <a
+            <Link
               className="group text-sm p-2.5 flex gap-4 flex-1 flex-row-reverse items-center pl-4 border border-border rounded-sm md:p-4 md:text-base hover:border-primary no-underline"
               href={prevHref}
             >
@@ -192,11 +192,11 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
                 <span className="text-foreground group-hover:text-primary line-clamp-2">{prevPage?.data.title}</span>
               </span>
               <i className="fas fa-chevron-left hidden md:block text-xs text-muted-foreground group-hover:text-primary" />
-            </a>
+            </Link>
           )}
 
           {nextHref && (
-            <a
+            <Link
               className="group text-sm p-2.5 flex gap-4 flex-1 flex-row items-center pr-4 border border-border rounded-sm md:p-4 md:text-base hover:border-primary no-underline"
               href={nextHref}
             >
@@ -205,7 +205,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
                 <span className="text-foreground group-hover:text-primary line-clamp-2">{nextPage?.data.title}</span>
               </span>
               <i className="fas fa-chevron-right hidden md:block text-xs text-muted-foreground group-hover:text-primary" />
-            </a>
+            </Link>
           )}
         </div>
       )}

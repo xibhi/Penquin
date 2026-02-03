@@ -92,14 +92,14 @@ function getContentSnippet(content: string, searchTerm: string): string {
 export const staticDocsData: SearchResult[] = [
   {
     title: 'Introduction',
-    url: '/docs',
+    url: '/docs/',
     slug: '',
     content: 'Penquin bug hunting toolkit automation efficiency philosophy transformation consequences warnings repetitive automate simplify eliminate precision subdomains terminal tools chains triage bounties Netflix confidence dependency clean execution purists romanticize pain inefficiency authentic progress stagnation',
     description: 'Getting started with Penquin'
   },
   {
     title: 'Arsenal',
-    url: '/docs/arsenal',
+    url: '/docs/arsenal/',
     slug: 'arsenal',
     content: 'Bug hunting tools arsenal security testing comprehensive collection automated command generation SQLmap FFuF Nuclei methodologies browser extensions vulnerability types reconnaissance subdomain enumeration port scanning web application testing',
     description: 'Essential bug hunting tools',
@@ -120,28 +120,28 @@ export const staticDocsData: SearchResult[] = [
   },
   {
     title: 'Reconnaissance',
-    url: '/docs/reconnaissance',
+    url: '/docs/reconnaissance/',
     slug: 'reconnaissance',
     content: 'Reconnaissance tools subdomain enumeration OSINT information gathering passive active reconnaissance DNS enumeration certificate transparency shodan censys google dorking social media investigation email harvesting phone number lookup',
     description: 'Reconnaissance and information gathering'
   },
   {
     title: 'Methodology',
-    url: '/docs/methodology',
+    url: '/docs/methodology/',
     slug: 'methodology',
     content: 'Bug hunting methodology vulnerability assessment OWASP testing guide penetration testing methodology reconnaissance scanning enumeration exploitation post exploitation reporting web application security mobile security network security',
     description: 'Bug hunting methodologies'
   },
   {
     title: 'Extensions',
-    url: '/docs/extensions',
+    url: '/docs/extensions/',
     slug: 'extensions',
     content: 'Browser extensions security testing tools Chrome Firefox Safari Burp Suite OWASP ZAP Wappalyzer BuiltWith Shodan HackerOne Bugcrowd security headers CSP XSS CSRF SQL injection',
     description: 'Essential browser extensions'
   },
   {
     title: 'Writeups',
-    url: '/docs/writeups',
+    url: '/docs/writeups/',
     slug: 'writeups',
     content: 'Bug bounty writeups vulnerability reports real world discoveries XSS SQL injection CSRF authentication bypass authorization privilege escalation business logic flaws race conditions SSRF XXE',
     description: 'Collection of bug hunting writeups'
@@ -162,7 +162,7 @@ export const staticDocsData: SearchResult[] = [
   },
   {
     title: 'YouTube Channels',
-    url: '/docs/youtube-channels',
+    url: '/docs/youtube-channels/',
     slug: 'youtube-channels',
     content: 'YouTube security channels cybersecurity education penetration testing tutorials bug bounty hunting malware analysis reverse engineering ethical hacking cybersecurity awareness security training',
     description: 'Security-focused YouTube channels'
